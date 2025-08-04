@@ -35,7 +35,6 @@
             txtCodigoProveedor = new TextBox();
             label3 = new Label();
             txtProveedor = new TextBox();
-            btBuscar = new Button();
             label4 = new Label();
             txtCodigoInsumo = new TextBox();
             label5 = new Label();
@@ -72,7 +71,7 @@
             label16 = new Label();
             label17 = new Label();
             txtUnidad = new TextBox();
-            comboBox1 = new ComboBox();
+            cbbEstado = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudPrecio).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
@@ -113,9 +112,10 @@
             // 
             txtCodigoProveedor.Location = new Point(256, 235);
             txtCodigoProveedor.Name = "txtCodigoProveedor";
-            txtCodigoProveedor.Size = new Size(175, 23);
+            txtCodigoProveedor.Size = new Size(195, 23);
             txtCodigoProveedor.TabIndex = 3;
             txtCodigoProveedor.TextAlign = HorizontalAlignment.Center;
+            txtCodigoProveedor.Leave += txtCodigoProveedor_Leave;
             // 
             // label3
             // 
@@ -135,18 +135,6 @@
             txtProveedor.Size = new Size(217, 23);
             txtProveedor.TabIndex = 5;
             // 
-            // btBuscar
-            // 
-            btBuscar.BackgroundImage = (Image)resources.GetObject("btBuscar.BackgroundImage");
-            btBuscar.BackgroundImageLayout = ImageLayout.Stretch;
-            btBuscar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btBuscar.Location = new Point(437, 220);
-            btBuscar.Name = "btBuscar";
-            btBuscar.Size = new Size(50, 44);
-            btBuscar.TabIndex = 6;
-            btBuscar.UseVisualStyleBackColor = true;
-            btBuscar.Click += button1_Click;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -165,6 +153,7 @@
             txtCodigoInsumo.TabIndex = 8;
             txtCodigoInsumo.TextAlign = HorizontalAlignment.Center;
             txtCodigoInsumo.TextChanged += textBox3_TextChanged;
+            txtCodigoInsumo.Leave += txtCodigoInsumo_Leave;
             // 
             // label5
             // 
@@ -234,8 +223,8 @@
             // 
             // nudPrecio
             // 
-            nudPrecio.Enabled = false;
             nudPrecio.Location = new Point(68, 371);
+            nudPrecio.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nudPrecio.Name = "nudPrecio";
             nudPrecio.Size = new Size(178, 23);
             nudPrecio.TabIndex = 18;
@@ -254,6 +243,7 @@
             // nudCantidad
             // 
             nudCantidad.Location = new Point(323, 373);
+            nudCantidad.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             nudCantidad.Name = "nudCantidad";
             nudCantidad.Size = new Size(79, 23);
             nudCantidad.TabIndex = 20;
@@ -313,6 +303,7 @@
             btGuardar.Size = new Size(83, 74);
             btGuardar.TabIndex = 23;
             btGuardar.UseVisualStyleBackColor = true;
+            btGuardar.Click += btGuardar_Click;
             // 
             // btAgregar
             // 
@@ -471,21 +462,22 @@
             txtUnidad.Size = new Size(180, 23);
             txtUnidad.TabIndex = 39;
             // 
-            // comboBox1
+            // cbbEstado
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Pendiente", "Entrega" });
-            comboBox1.Location = new Point(409, 373);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(179, 23);
-            comboBox1.TabIndex = 40;
+            cbbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbEstado.FormattingEnabled = true;
+            cbbEstado.Items.AddRange(new object[] { "Pendiente", "Entregado" });
+            cbbEstado.Location = new Point(409, 373);
+            cbbEstado.Name = "cbbEstado";
+            cbbEstado.Size = new Size(179, 23);
+            cbbEstado.TabIndex = 40;
             // 
             // CompraInsumos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(605, 682);
-            Controls.Add(comboBox1);
+            Controls.Add(cbbEstado);
             Controls.Add(txtUnidad);
             Controls.Add(label17);
             Controls.Add(label16);
@@ -516,7 +508,6 @@
             Controls.Add(label5);
             Controls.Add(txtCodigoInsumo);
             Controls.Add(label4);
-            Controls.Add(btBuscar);
             Controls.Add(txtProveedor);
             Controls.Add(label3);
             Controls.Add(txtCodigoProveedor);
@@ -544,7 +535,6 @@
         private TextBox txtCodigoProveedor;
         private Label label3;
         private TextBox txtProveedor;
-        private Button btBuscar;
         private Label label4;
         private TextBox txtCodigoInsumo;
         private Label label5;
@@ -581,6 +571,6 @@
         private DataGridViewTextBoxColumn Unidad;
         private DataGridViewTextBoxColumn Total;
         private TextBox txtUnidad;
-        private ComboBox comboBox1;
+        private ComboBox cbbEstado;
     }
 }

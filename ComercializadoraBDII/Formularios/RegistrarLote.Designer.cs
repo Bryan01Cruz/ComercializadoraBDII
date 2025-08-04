@@ -46,15 +46,10 @@
             cbbTipoSuelo = new ComboBox();
             label9 = new Label();
             cbbTipoRiego = new ComboBox();
-            label10 = new Label();
-            nudCosechas = new NumericUpDown();
-            label11 = new Label();
             btGuardar = new Button();
-            dtpFecha = new DateTimePicker();
             label12 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudArea).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)nudCosechas).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -132,6 +127,7 @@
             txtCodigoProducto.Size = new Size(156, 23);
             txtCodigoProducto.TabIndex = 8;
             txtCodigoProducto.TextAlign = HorizontalAlignment.Center;
+            txtCodigoProducto.Leave += txtCodigoProducto_Leave;
             // 
             // label5
             // 
@@ -218,61 +214,23 @@
             cbbTipoRiego.Size = new Size(175, 23);
             cbbTipoRiego.TabIndex = 19;
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(134, 425);
-            label10.Name = "label10";
-            label10.Size = new Size(142, 17);
-            label10.TabIndex = 20;
-            label10.Text = "Cantidad de cosechas:";
-            // 
-            // nudCosechas
-            // 
-            nudCosechas.Location = new Point(282, 425);
-            nudCosechas.Maximum = new decimal(new int[] { 1000000000, 0, 0, 0 });
-            nudCosechas.Name = "nudCosechas";
-            nudCosechas.Size = new Size(174, 23);
-            nudCosechas.TabIndex = 21;
-            nudCosechas.TextAlign = HorizontalAlignment.Right;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(134, 459);
-            label11.Name = "label11";
-            label11.Size = new Size(117, 17);
-            label11.TabIndex = 22;
-            label11.Text = "Fecha de cosecha:";
-            // 
             // btGuardar
             // 
             btGuardar.BackgroundImage = (Image)resources.GetObject("btGuardar.BackgroundImage");
             btGuardar.BackgroundImageLayout = ImageLayout.Stretch;
             btGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btGuardar.Location = new Point(260, 484);
+            btGuardar.Location = new Point(260, 434);
             btGuardar.Name = "btGuardar";
             btGuardar.Size = new Size(82, 78);
             btGuardar.TabIndex = 23;
             btGuardar.UseVisualStyleBackColor = true;
             btGuardar.Click += button3_Click;
             // 
-            // dtpFecha
-            // 
-            dtpFecha.CustomFormat = "dd-MM-yyyy";
-            dtpFecha.Format = DateTimePickerFormat.Custom;
-            dtpFecha.Location = new Point(256, 455);
-            dtpFecha.Name = "dtpFecha";
-            dtpFecha.Size = new Size(200, 23);
-            dtpFecha.TabIndex = 24;
-            // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(278, 564);
+            label12.Location = new Point(278, 514);
             label12.Name = "label12";
             label12.Size = new Size(49, 15);
             label12.TabIndex = 25;
@@ -282,13 +240,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(605, 587);
+            ClientSize = new Size(605, 540);
             Controls.Add(label12);
-            Controls.Add(dtpFecha);
             Controls.Add(btGuardar);
-            Controls.Add(label11);
-            Controls.Add(nudCosechas);
-            Controls.Add(label10);
             Controls.Add(cbbTipoRiego);
             Controls.Add(label9);
             Controls.Add(cbbTipoSuelo);
@@ -313,7 +267,6 @@
             Load += RegistrarLote_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudArea).EndInit();
-            ((System.ComponentModel.ISupportInitialize)nudCosechas).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -337,11 +290,7 @@
         private ComboBox cbbTipoSuelo;
         private Label label9;
         private ComboBox cbbTipoRiego;
-        private Label label10;
-        private NumericUpDown nudCosechas;
-        private Label label11;
         private Button btGuardar;
-        private DateTimePicker dtpFecha;
         private Label label12;
     }
 }

@@ -24,11 +24,11 @@ namespace ComercializadoraBDII.Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 forma = new Form1();
-            forma.ShowDialog();
-            txtUsuario.Clear();
-            txtContrasena.Clear();
-            chkVer.Checked = false;
+                Form1 forma = new Form1();
+                forma.ShowDialog();
+                txtUsuario.Clear();
+                txtContrasena.Clear();
+                chkVer.Checked = false;
         }
     }
 }

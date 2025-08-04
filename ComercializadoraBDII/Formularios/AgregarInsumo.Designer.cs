@@ -114,6 +114,7 @@
             // 
             cbbUnidad.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbUnidad.FormattingEnabled = true;
+            cbbUnidad.Items.AddRange(new object[] { "Galones", "Unidad", "Quintales" });
             cbbUnidad.Location = new Point(235, 299);
             cbbUnidad.Name = "cbbUnidad";
             cbbUnidad.Size = new Size(161, 23);

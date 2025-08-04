@@ -40,7 +40,6 @@
             label5 = new Label();
             label6 = new Label();
             txtCodigo = new TextBox();
-            txtProducto = new TextBox();
             label7 = new Label();
             label8 = new Label();
             dgvCosecha = new DataGridView();
@@ -70,6 +69,7 @@
             txtUnidad = new TextBox();
             label10 = new Label();
             cbbFincas = new ComboBox();
+            cbbProducto = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCosecha).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
@@ -132,7 +132,7 @@
             txtProductor.Location = new Point(229, 264);
             txtProductor.Name = "txtProductor";
             txtProductor.Size = new Size(216, 23);
-            txtProductor.TabIndex = 6;
+            txtProductor.TabIndex = 3;
             // 
             // label4
             // 
@@ -149,7 +149,7 @@
             txtCodigoBodega.Location = new Point(88, 320);
             txtCodigoBodega.Name = "txtCodigoBodega";
             txtCodigoBodega.Size = new Size(54, 23);
-            txtCodigoBodega.TabIndex = 3;
+            txtCodigoBodega.TabIndex = 5;
             txtCodigoBodega.Leave += txtCodigoBodega_Leave;
             // 
             // label5
@@ -174,19 +174,12 @@
             // 
             // txtCodigo
             // 
+            txtCodigo.Enabled = false;
             txtCodigo.Location = new Point(148, 350);
             txtCodigo.Name = "txtCodigo";
             txtCodigo.Size = new Size(77, 23);
-            txtCodigo.TabIndex = 4;
+            txtCodigo.TabIndex = 9;
             txtCodigo.Leave += txtCodigo_Leave;
-            // 
-            // txtProducto
-            // 
-            txtProducto.Enabled = false;
-            txtProducto.Location = new Point(304, 350);
-            txtProducto.Name = "txtProducto";
-            txtProducto.Size = new Size(270, 23);
-            txtProducto.TabIndex = 13;
             // 
             // label7
             // 
@@ -266,7 +259,7 @@
             nudCantidad.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             nudCantidad.Name = "nudCantidad";
             nudCantidad.Size = new Size(94, 23);
-            nudCantidad.TabIndex = 6;
+            nudCantidad.TabIndex = 10;
             nudCantidad.TextAlign = HorizontalAlignment.Right;
             // 
             // nudPrecio
@@ -275,7 +268,7 @@
             nudPrecio.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             nudPrecio.Name = "nudPrecio";
             nudPrecio.Size = new Size(143, 23);
-            nudPrecio.TabIndex = 5;
+            nudPrecio.TabIndex = 9;
             nudPrecio.TextAlign = HorizontalAlignment.Right;
             // 
             // label11
@@ -403,7 +396,7 @@
             txtBodega.Location = new Point(148, 320);
             txtBodega.Name = "txtBodega";
             txtBodega.Size = new Size(161, 23);
-            txtBodega.TabIndex = 42;
+            txtBodega.TabIndex = 6;
             // 
             // label17
             // 
@@ -422,7 +415,7 @@
             nudDisponible.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             nudDisponible.Name = "nudDisponible";
             nudDisponible.Size = new Size(113, 23);
-            nudDisponible.TabIndex = 44;
+            nudDisponible.TabIndex = 7;
             nudDisponible.TextAlign = HorizontalAlignment.Right;
             // 
             // dtpFechaEntrega
@@ -432,7 +425,7 @@
             dtpFechaEntrega.Location = new Point(284, 292);
             dtpFechaEntrega.Name = "dtpFechaEntrega";
             dtpFechaEntrega.Size = new Size(125, 23);
-            dtpFechaEntrega.TabIndex = 2;
+            dtpFechaEntrega.TabIndex = 4;
             // 
             // txtUnidad
             // 
@@ -440,7 +433,8 @@
             txtUnidad.Location = new Point(404, 381);
             txtUnidad.Name = "txtUnidad";
             txtUnidad.Size = new Size(170, 23);
-            txtUnidad.TabIndex = 46;
+            txtUnidad.TabIndex = 11;
+            txtUnidad.Text = "Quintales";
             // 
             // label10
             // 
@@ -458,13 +452,24 @@
             cbbFincas.Location = new Point(376, 233);
             cbbFincas.Name = "cbbFincas";
             cbbFincas.Size = new Size(144, 23);
-            cbbFincas.TabIndex = 48;
+            cbbFincas.TabIndex = 2;
+            cbbFincas.SelectedIndexChanged += cbbFincas_SelectedIndexChanged;
+            // 
+            // cbbProducto
+            // 
+            cbbProducto.FormattingEnabled = true;
+            cbbProducto.Location = new Point(304, 350);
+            cbbProducto.Name = "cbbProducto";
+            cbbProducto.Size = new Size(270, 23);
+            cbbProducto.TabIndex = 8;
+            cbbProducto.SelectedIndexChanged += cbbProducto_SelectedIndexChanged;
             // 
             // RegistrarCosecha
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(605, 682);
+            Controls.Add(cbbProducto);
             Controls.Add(cbbFincas);
             Controls.Add(label10);
             Controls.Add(txtUnidad);
@@ -488,7 +493,6 @@
             Controls.Add(dgvCosecha);
             Controls.Add(label8);
             Controls.Add(label7);
-            Controls.Add(txtProducto);
             Controls.Add(txtCodigo);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -527,7 +531,6 @@
         private Label label5;
         private Label label6;
         private TextBox txtCodigo;
-        private TextBox txtProducto;
         private Label label7;
         private Label label8;
         private DataGridView dgvCosecha;
@@ -557,5 +560,6 @@
         private DataGridViewTextBoxColumn Total;
         private Label label10;
         private ComboBox cbbFincas;
+        private ComboBox cbbProducto;
     }
 }

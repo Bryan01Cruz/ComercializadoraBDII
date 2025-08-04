@@ -50,8 +50,7 @@ namespace ComercializadoraBDII.Formularios
         private void button3_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtCodigoFinca.Text) || string.IsNullOrWhiteSpace(txtFinca.Text) || string.IsNullOrWhiteSpace(txtCodigoProducto.Text) ||
-                string.IsNullOrWhiteSpace(txtProducto.Text) || nudArea.Value==0 ||cbbTipoSuelo.Text == "" ||
-                nudCosechas.Value==0 || cbbTipoRiego.Text == "")
+                string.IsNullOrWhiteSpace(txtProducto.Text) || nudArea.Value == 0 || cbbTipoSuelo.Text == "")
             {
                 MessageBox.Show("Ingrese todos los campos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -81,8 +80,6 @@ namespace ComercializadoraBDII.Formularios
                         nudArea.Value = 0;
                         cbbTipoRiego.SelectedIndex = 0;
                         cbbTipoSuelo.SelectedIndex = 0;
-                        nudCosechas.Value = 0;
-                        dtpFecha.Value = DateTime.Now;
                     }
                     else
                     {
@@ -145,6 +142,48 @@ namespace ComercializadoraBDII.Formularios
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtCodigoProducto_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCodigoProducto.Text))
+            {
+                MessageBox.Show("Ingrese el código de finca a buscar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                try
+                {
+                    string codigo = txtCodigoProducto.Text.Trim();
+
+                    var conector = new ConectorSQL();
+                    var parametros = new SqlParameter[]
+                    {
+                    conector.CrearParametro("@Codigo", codigo)
+                    };
+
+                    DataTable resultado = conector.EjecutarConsulta("spBuscarProducto", parametros);
+
+                    if (resultado.Rows.Count > 0)
+                    {
+                        txtProducto.Text = resultado.Rows[0]["Nombre"].ToString();
+                    }
+                    else
+                    {
+                        txtProducto.Text = string.Empty;
+                        MessageBox.Show("No se encontró el código de producto ingresado.", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show($"Error de conexión o ejecución de consulta:\n{ex.Message}", "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
         }
     }
 }

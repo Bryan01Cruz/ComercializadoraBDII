@@ -59,14 +59,14 @@
             administraciónToolStripMenuItem = new ToolStripMenuItem();
             parametrosDelSistemaToolStripMenuItem = new ToolStripMenuItem();
             consultasToolStripMenuItem = new ToolStripMenuItem();
-            sesiónToolStripMenuItem = new ToolStripMenuItem();
-            cerrarSesiónToolStripMenuItem = new ToolStripMenuItem();
-            salirDelSistemaToolStripMenuItem = new ToolStripMenuItem();
-            pictureBox1 = new PictureBox();
             productoresToolStripMenuItem = new ToolStripMenuItem();
             fincasToolStripMenuItem = new ToolStripMenuItem();
             lotesToolStripMenuItem = new ToolStripMenuItem();
             consultaDeProducciónPorProductorLoteToolStripMenuItem = new ToolStripMenuItem();
+            sesiónToolStripMenuItem = new ToolStripMenuItem();
+            cerrarSesiónToolStripMenuItem = new ToolStripMenuItem();
+            salirDelSistemaToolStripMenuItem = new ToolStripMenuItem();
+            pictureBox1 = new PictureBox();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -212,7 +212,8 @@
             // 
             registrarLiquidaciónDeCosechaToolStripMenuItem.Name = "registrarLiquidaciónDeCosechaToolStripMenuItem";
             registrarLiquidaciónDeCosechaToolStripMenuItem.Size = new Size(278, 22);
-            registrarLiquidaciónDeCosechaToolStripMenuItem.Text = "Registrar liquidación de cosecha";
+            registrarLiquidaciónDeCosechaToolStripMenuItem.Text = "Registrar liquidación a productor";
+            registrarLiquidaciónDeCosechaToolStripMenuItem.Click += registrarLiquidaciónDeCosechaToolStripMenuItem_Click;
             // 
             // registrarAbonoAProductorToolStripMenuItem
             // 
@@ -273,38 +274,6 @@
             consultasToolStripMenuItem.Size = new Size(79, 21);
             consultasToolStripMenuItem.Text = "Consultas";
             // 
-            // sesiónToolStripMenuItem
-            // 
-            sesiónToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cerrarSesiónToolStripMenuItem, salirDelSistemaToolStripMenuItem });
-            sesiónToolStripMenuItem.Name = "sesiónToolStripMenuItem";
-            sesiónToolStripMenuItem.Size = new Size(59, 21);
-            sesiónToolStripMenuItem.Text = "Sesión";
-            // 
-            // cerrarSesiónToolStripMenuItem
-            // 
-            cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            cerrarSesiónToolStripMenuItem.Size = new Size(180, 22);
-            cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
-            cerrarSesiónToolStripMenuItem.Click += cerrarSesiónToolStripMenuItem_Click;
-            // 
-            // salirDelSistemaToolStripMenuItem
-            // 
-            salirDelSistemaToolStripMenuItem.Name = "salirDelSistemaToolStripMenuItem";
-            salirDelSistemaToolStripMenuItem.Size = new Size(180, 22);
-            salirDelSistemaToolStripMenuItem.Text = "Salir del sistema";
-            salirDelSistemaToolStripMenuItem.Click += salirDelSistemaToolStripMenuItem_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(875, 506);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
-            // 
             // productoresToolStripMenuItem
             // 
             productoresToolStripMenuItem.Name = "productoresToolStripMenuItem";
@@ -328,6 +297,38 @@
             consultaDeProducciónPorProductorLoteToolStripMenuItem.Name = "consultaDeProducciónPorProductorLoteToolStripMenuItem";
             consultaDeProducciónPorProductorLoteToolStripMenuItem.Size = new Size(349, 22);
             consultaDeProducciónPorProductorLoteToolStripMenuItem.Text = "Consulta de producción por Productor / Lote";
+            // 
+            // sesiónToolStripMenuItem
+            // 
+            sesiónToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cerrarSesiónToolStripMenuItem, salirDelSistemaToolStripMenuItem });
+            sesiónToolStripMenuItem.Name = "sesiónToolStripMenuItem";
+            sesiónToolStripMenuItem.Size = new Size(59, 21);
+            sesiónToolStripMenuItem.Text = "Sesión";
+            // 
+            // cerrarSesiónToolStripMenuItem
+            // 
+            cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            cerrarSesiónToolStripMenuItem.Size = new Size(173, 22);
+            cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
+            cerrarSesiónToolStripMenuItem.Click += cerrarSesiónToolStripMenuItem_Click;
+            // 
+            // salirDelSistemaToolStripMenuItem
+            // 
+            salirDelSistemaToolStripMenuItem.Name = "salirDelSistemaToolStripMenuItem";
+            salirDelSistemaToolStripMenuItem.Size = new Size(173, 22);
+            salirDelSistemaToolStripMenuItem.Text = "Salir del sistema";
+            salirDelSistemaToolStripMenuItem.Click += salirDelSistemaToolStripMenuItem_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(875, 506);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
             // 
             // Form1
             // 

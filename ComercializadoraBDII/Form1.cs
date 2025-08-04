@@ -77,5 +77,11 @@ namespace ComercializadoraBDII
             Formularios.AgregarBodega forma = new Formularios.AgregarBodega();
             forma.ShowDialog();
         }
+
+        private void registrarLiquidaciónDeCosechaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formularios.LiquidacionCosecha forma = new Formularios.LiquidacionCosecha();
+            forma.ShowDialog();
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace ComercializadoraBDII.Formularios
         private void button2_Click(object sender, EventArgs e)
         {
             // Validación básica
-            if (string.IsNullOrWhiteSpace(txtCodigo.Text) || string.IsNullOrWhiteSpace(txtProducto.Text) || nudCantidad.Value == 0 || nudPrecio.Value == 0 || string.IsNullOrWhiteSpace(txtUnidad.Text))
+            if (string.IsNullOrWhiteSpace(txtCodigo.Text) || nudCantidad.Value == 0 || nudPrecio.Value == 0)
             {
                 MessageBox.Show("Debe ingresar todos los campos para insertar un registro", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -36,7 +36,7 @@ namespace ComercializadoraBDII.Formularios
             // Agrega fila al DataGridView
             int nuevaFila = dgvCosecha.Rows.Add();
             dgvCosecha.Rows[nuevaFila].Cells["Codigo"].Value = txtCodigo.Text;
-            dgvCosecha.Rows[nuevaFila].Cells["Producto"].Value = txtProducto.Text;
+            dgvCosecha.Rows[nuevaFila].Cells["Producto"].Value = cbbProducto.Text;
             dgvCosecha.Rows[nuevaFila].Cells["Cantidad"].Value = nudCantidad.Value;
             dgvCosecha.Rows[nuevaFila].Cells["Unidad"].Value = txtUnidad.Text;
             dgvCosecha.Rows[nuevaFila].Cells["Precio"].Value = nudPrecio.Value;
@@ -47,7 +47,7 @@ namespace ComercializadoraBDII.Formularios
             // Limpieza
             txtCodigo.Clear();
             txtCodigo.Focus();
-            txtProducto.Clear();
+            cbbProducto.SelectedIndex = 0;
             nudCantidad.Value = 0;
             nudPrecio.Value = 0;
             txtUnidad.Clear();
@@ -92,7 +92,7 @@ namespace ComercializadoraBDII.Formularios
             {
                 // Copia datos a los Text
                 txtCodigo.Text = fila.Cells["Codigo"].Value?.ToString();
-                txtProducto.Text = fila.Cells["Producto"].Value?.ToString();
+                cbbProducto.Text = fila.Cells["Producto"].Value?.ToString();
                 txtUnidad.Text = fila.Cells["Unidad"].Value?.ToString();
                 nudCantidad.Value = Convert.ToDecimal(fila.Cells["Cantidad"].Value);
                 nudPrecio.Value = Convert.ToDecimal(fila.Cells["Precio"].Value);
@@ -136,7 +136,6 @@ namespace ComercializadoraBDII.Formularios
                     txtBodega.Text = string.Empty;
                     nudDisponible.Value = 0;
                     MessageBox.Show("No se encontró el código ingresado.", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtCodigoBodega.Focus();
                 }
             }
             catch (SqlException ex)
@@ -147,92 +146,147 @@ namespace ComercializadoraBDII.Formularios
             {
                 MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        //}
-            
+            //}
+
         }
 
         private void txtCodigo_Leave(object sender, EventArgs e)
         {
-                try
-                {
-                    string codigo = txtCodigo.Text.Trim();
+            //try
+            //{
+            //    string codigo = txtCodigo.Text.Trim();
 
-                    var conector = new ConectorSQL();
-                    var parametros = new SqlParameter[]
-                    {
-                        conector.CrearParametro("@Codigo", codigo)
-                    };
+            //    var conector = new ConectorSQL();
+            //    var parametros = new SqlParameter[]
+            //    {
+            //            conector.CrearParametro("@Codigo", codigo)
+            //    };
 
-                    DataTable resultado = conector.EjecutarConsulta("spBuscarProducto", parametros);
+            //    DataTable resultado = conector.EjecutarConsulta("spBuscarProducto", parametros);
 
-                    if (resultado.Rows.Count > 0)
-                    {
-                        txtProducto.Text = resultado.Rows[0]["Nombre"].ToString();
-                        nudPrecio.Value = Convert.ToDecimal(resultado.Rows[0]["Precio"]);
-                        txtUnidad.Text = resultado.Rows[0]["Unidad"].ToString();
-                    }
-                    else
-                    {
-                        txtProducto.Text = string.Empty;
-                        MessageBox.Show("No se encontró el código ingresado.", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show($"Error de conexión o ejecución de consulta:\n{ex.Message}", "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            //    if (resultado.Rows.Count > 0)
+            //    {
+            //        txtProducto.Text = resultado.Rows[0]["Nombre"].ToString();
+            //        nudPrecio.Value = Convert.ToDecimal(resultado.Rows[0]["Precio"]);
+            //        txtUnidad.Text = resultado.Rows[0]["Unidad"].ToString();
+            //    }
+            //    else
+            //    {
+            //        txtProducto.Text = string.Empty;
+            //        MessageBox.Show("No se encontró el código ingresado.", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //}
+            //catch (SqlException ex)
+            //{
+            //    MessageBox.Show($"Error de conexión o ejecución de consulta:\n{ex.Message}", "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void txtCodigoProductor_Leave(object sender, EventArgs e)
         {
-                try
+            try
+            {
+                string codigo = txtCodigoProductor.Text.Trim();
+
+                var conector = new ConectorSQL();
+                var parametros = new SqlParameter[]
                 {
-                    string codigo = txtCodigoProductor.Text.Trim();
-
-                    var conector = new ConectorSQL();
-                    var parametros = new SqlParameter[]
-                    {
                     conector.CrearParametro("@Codigo", codigo)
-                    };
+                };
 
-                    var conector2 = new ConectorSQL();
-                    var parametros2 = new SqlParameter[]
-                    {
+                var conector2 = new ConectorSQL();
+                var parametros2 = new SqlParameter[]
+                {
                         conector2.CrearParametro("@Codigo", codigo)
-                    };
+                };
 
-                    conector2.CargarComboSoloNombre(cbbFincas, "spBuscarFincaCosecha", "Nombre", "", parametros2);
-                    DataTable resultado = conector.EjecutarConsulta("spBuscarProductor", parametros);
-                    
+                conector2.CargarComboSoloNombre(cbbFincas, "spBuscarFincaCosecha", "Nombre", "", parametros2);
+                DataTable resultado = conector.EjecutarConsulta("spBuscarProductor", parametros);
+
 
                 if (resultado.Rows.Count > 0)
-                    {
-                        txtProductor.Text = resultado.Rows[0]["Nombre"].ToString();
-                    }
-                    else
-                    {
-                        txtProductor.Text = string.Empty;
-                        MessageBox.Show("No se encontró el código.", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtCodigoProductor.Focus();
-                    }
-                }
-                catch (SqlException ex)
                 {
-                    MessageBox.Show($"Error de conexión o ejecución de consulta:\n{ex.Message}", "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtProductor.Text = resultado.Rows[0]["Nombre"].ToString();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtProductor.Text = string.Empty;
+                    MessageBox.Show("No se encontró el código.", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtCodigoProductor.Focus();
                 }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de conexión o ejecución de consulta:\n{ex.Message}", "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btGuardar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbbFincas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string finca = cbbFincas.Text;
+
+                var conector = new ConectorSQL();
+                var parametros = new SqlParameter[]
+                {
+                    conector.CrearParametro("@Finca", finca)
+                };
+                conector.CargarComboSoloNombre(cbbProducto, "spBuscarProductosFinca", "Nombre", "", parametros);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de conexión o ejecución de consulta:\n{ex.Message}", "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cbbProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string producto = cbbProducto.Text;
+
+                var conector = new ConectorSQL();
+                var parametros = new SqlParameter[]
+                {
+                    conector.CrearParametro("@Producto", producto)
+                };
+                DataTable resultado = conector.EjecutarConsulta("spBuscarCodigoProducto", parametros);
+
+                if (resultado.Rows.Count > 0)
+                {
+                    txtCodigo.Text = resultado.Rows[0]["Codigo"].ToString();
+                }
+                //else
+                //{
+                //    MessageBox.Show("No se encontró el código.", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de conexión o ejecución de consulta:\n{ex.Message}", "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

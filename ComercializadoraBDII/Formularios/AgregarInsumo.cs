@@ -24,7 +24,6 @@ namespace ComercializadoraBDII.Formularios
             try
             {
                 ConectorSQL conector = new ConectorSQL();
-                conector.CargarComboSoloNombre(cbbUnidad, "spObtenerMedida", "Nombre");
                 conector.CargarComboSoloNombre(cbbTipoInsumo, "spObtenerTipoInsumo", "Nombre");
             }
             catch (SqlException ex)

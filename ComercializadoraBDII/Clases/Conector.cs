@@ -63,6 +63,34 @@ public class ConectorSQL
             }
         }
 
+        public DataTable EjecutarConsultaTexto(string sql, SqlParameter[] parametros = null)
+        {
+            using SqlConnection con = ObtenerConexion();
+            using SqlCommand cmd = new SqlCommand(sql, con);
+
+            cmd.CommandType = CommandType.Text;
+            if (parametros != null && parametros.Length > 0)
+                cmd.Parameters.AddRange(parametros);
+
+            using SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+        public object EjecutarEscalar(string sql, SqlParameter[] parametros = null)
+        {
+            using SqlConnection con = ObtenerConexion();
+            using SqlCommand cmd = new SqlCommand(sql, con);
+
+            cmd.CommandType = CommandType.Text;
+            if (parametros != null && parametros.Length > 0)
+                cmd.Parameters.AddRange(parametros);
+
+            con.Open();
+            return cmd.ExecuteScalar();
+        }
+
         public SqlParameter CrearParametro(string nombre, object valor)
         {
             return new SqlParameter(nombre, valor ?? DBNull.Value);
