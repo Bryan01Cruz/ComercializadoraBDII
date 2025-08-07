@@ -1,6 +1,6 @@
 ﻿namespace ComercializadoraBDII.Formularios
 {
-    partial class NuevoUsuario
+    partial class RegistrarCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,32 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NuevoUsuario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarCliente));
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
             txtNombre = new TextBox();
             label3 = new Label();
-            txtUsuario = new TextBox();
+            cbbTipoIdentidad = new ComboBox();
             label4 = new Label();
-            txtContrasena = new MaskedTextBox();
-            chkVer = new CheckBox();
+            txtIdentidad = new MaskedTextBox();
             label5 = new Label();
-            cbbDepartamento = new ComboBox();
+            txtDireccion = new TextBox();
             label6 = new Label();
-            cbbAdministrador = new ComboBox();
-            button1 = new Button();
+            txtTelefono = new MaskedTextBox();
+            btGuardar = new Button();
             label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = SystemColors.Control;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(126, 12);
+            pictureBox1.Location = new Point(167, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(213, 190);
+            pictureBox1.Size = new Size(183, 151);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -62,17 +60,17 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(141, 205);
+            label1.Location = new Point(183, 166);
             label1.Name = "label1";
-            label1.Size = new Size(187, 25);
+            label1.Size = new Size(158, 25);
             label1.TabIndex = 1;
-            label1.Text = "Gestión de usuarios";
+            label1.Text = "Registrar Cliente";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(94, 238);
+            label2.Location = new Point(112, 205);
             label2.Name = "label2";
             label2.Size = new Size(61, 17);
             label2.TabIndex = 2;
@@ -80,142 +78,132 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(161, 237);
+            txtNombre.Location = new Point(183, 204);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(212, 23);
+            txtNombre.Size = new Size(220, 23);
             txtNombre.TabIndex = 1;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(94, 272);
+            label3.Location = new Point(112, 240);
             label3.Name = "label3";
-            label3.Size = new Size(57, 17);
+            label3.Size = new Size(99, 17);
             label3.TabIndex = 4;
-            label3.Text = "Usuario:";
+            label3.Text = "Tipo Identidad:";
             // 
-            // txtUsuario
+            // cbbTipoIdentidad
             // 
-            txtUsuario.Location = new Point(161, 271);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(212, 23);
-            txtUsuario.TabIndex = 2;
+            cbbTipoIdentidad.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbTipoIdentidad.FormattingEnabled = true;
+            cbbTipoIdentidad.Items.AddRange(new object[] { "DNI", "RTN" });
+            cbbTipoIdentidad.Location = new Point(217, 239);
+            cbbTipoIdentidad.Name = "cbbTipoIdentidad";
+            cbbTipoIdentidad.Size = new Size(186, 23);
+            cbbTipoIdentidad.TabIndex = 2;
+            cbbTipoIdentidad.SelectedIndexChanged += cbbTipoIdentidad_SelectedIndexChanged;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(94, 307);
+            label4.Location = new Point(112, 277);
             label4.Name = "label4";
-            label4.Size = new Size(80, 17);
+            label4.Size = new Size(69, 17);
             label4.TabIndex = 6;
-            label4.Text = "Contraseña:";
+            label4.Text = "Identidad:";
             // 
-            // txtContrasena
+            // txtIdentidad
             // 
-            txtContrasena.Location = new Point(175, 306);
-            txtContrasena.Name = "txtContrasena";
-            txtContrasena.PasswordChar = '*';
-            txtContrasena.Size = new Size(150, 23);
-            txtContrasena.TabIndex = 3;
-            // 
-            // chkVer
-            // 
-            chkVer.AutoSize = true;
-            chkVer.Location = new Point(331, 308);
-            chkVer.Name = "chkVer";
-            chkVer.Size = new Size(42, 19);
-            chkVer.TabIndex = 8;
-            chkVer.Text = "Ver";
-            chkVer.UseVisualStyleBackColor = true;
-            chkVer.CheckedChanged += checkBox1_CheckedChanged;
+            txtIdentidad.Location = new Point(183, 275);
+            txtIdentidad.Name = "txtIdentidad";
+            txtIdentidad.Size = new Size(220, 23);
+            txtIdentidad.TabIndex = 3;
+            txtIdentidad.TextAlign = HorizontalAlignment.Center;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(94, 341);
+            label5.Location = new Point(112, 311);
             label5.Name = "label5";
-            label5.Size = new Size(99, 17);
-            label5.TabIndex = 9;
-            label5.Text = "Departamento:";
+            label5.Size = new Size(66, 17);
+            label5.TabIndex = 8;
+            label5.Text = "Dirección:";
             // 
-            // cbbDepartamento
+            // txtDireccion
             // 
-            cbbDepartamento.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbbDepartamento.FormattingEnabled = true;
-            cbbDepartamento.Items.AddRange(new object[] { "Comercial", "IT", "Contabilidad", "Administración", "RRHH", "Bodega" });
-            cbbDepartamento.Location = new Point(199, 340);
-            cbbDepartamento.Name = "cbbDepartamento";
-            cbbDepartamento.Size = new Size(174, 23);
-            cbbDepartamento.TabIndex = 4;
+            txtDireccion.Location = new Point(183, 310);
+            txtDireccion.Multiline = true;
+            txtDireccion.Name = "txtDireccion";
+            txtDireccion.Size = new Size(220, 58);
+            txtDireccion.TabIndex = 4;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(94, 374);
+            label6.Location = new Point(116, 380);
             label6.Name = "label6";
-            label6.Size = new Size(99, 17);
-            label6.TabIndex = 11;
-            label6.Text = "Administrador:";
+            label6.Size = new Size(62, 17);
+            label6.TabIndex = 10;
+            label6.Text = "Telefono:";
             // 
-            // cbbAdministrador
+            // txtTelefono
             // 
-            cbbAdministrador.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbbAdministrador.FormattingEnabled = true;
-            cbbAdministrador.Items.AddRange(new object[] { "Si", "No" });
-            cbbAdministrador.Location = new Point(199, 373);
-            cbbAdministrador.Name = "cbbAdministrador";
-            cbbAdministrador.Size = new Size(174, 23);
-            cbbAdministrador.TabIndex = 5;
+            txtTelefono.Location = new Point(184, 378);
+            txtTelefono.Mask = "####-####";
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(219, 23);
+            txtTelefono.TabIndex = 5;
+            txtTelefono.TextAlign = HorizontalAlignment.Center;
             // 
-            // button1
+            // btGuardar
             // 
-            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.Location = new Point(193, 407);
-            button1.Name = "button1";
-            button1.Size = new Size(93, 74);
-            button1.TabIndex = 6;
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btGuardar.BackgroundImage = (Image)resources.GetObject("btGuardar.BackgroundImage");
+            btGuardar.BackgroundImageLayout = ImageLayout.Stretch;
+            btGuardar.Location = new Point(225, 407);
+            btGuardar.Name = "btGuardar";
+            btGuardar.Size = new Size(81, 77);
+            btGuardar.TabIndex = 6;
+            btGuardar.UseVisualStyleBackColor = true;
+            btGuardar.Click += btGuardar_Click;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(217, 483);
+            label7.Location = new Point(244, 487);
             label7.Name = "label7";
             label7.Size = new Size(49, 15);
-            label7.TabIndex = 17;
+            label7.TabIndex = 13;
             label7.Text = "Guardar";
             // 
-            // NuevoUsuario
+            // RegistrarCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(474, 511);
+            ClientSize = new Size(530, 507);
             Controls.Add(label7);
-            Controls.Add(button1);
-            Controls.Add(cbbAdministrador);
+            Controls.Add(btGuardar);
+            Controls.Add(txtTelefono);
             Controls.Add(label6);
-            Controls.Add(cbbDepartamento);
+            Controls.Add(txtDireccion);
             Controls.Add(label5);
-            Controls.Add(chkVer);
-            Controls.Add(txtContrasena);
+            Controls.Add(txtIdentidad);
             Controls.Add(label4);
-            Controls.Add(txtUsuario);
+            Controls.Add(cbbTipoIdentidad);
             Controls.Add(label3);
             Controls.Add(txtNombre);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Name = "NuevoUsuario";
+            Name = "RegistrarCliente";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Registrar Nuevo Usuario";
+            Text = "Registrar Cliente";
+            Load += RegistrarCliente_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -228,15 +216,14 @@
         private Label label2;
         private TextBox txtNombre;
         private Label label3;
-        private TextBox txtUsuario;
+        private ComboBox cbbTipoIdentidad;
         private Label label4;
-        private MaskedTextBox txtContrasena;
-        private CheckBox chkVer;
+        private MaskedTextBox txtIdentidad;
         private Label label5;
-        private ComboBox cbbDepartamento;
+        private TextBox txtDireccion;
         private Label label6;
-        private ComboBox cbbAdministrador;
-        private Button button1;
+        private MaskedTextBox txtTelefono;
+        private Button btGuardar;
         private Label label7;
     }
 }

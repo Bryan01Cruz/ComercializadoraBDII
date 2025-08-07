@@ -79,7 +79,7 @@
             txtNombre.Location = new Point(194, 239);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(242, 23);
-            txtNombre.TabIndex = 3;
+            txtNombre.TabIndex = 1;
             // 
             // label3
             // 
@@ -97,7 +97,7 @@
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(216, 79);
-            txtDescripcion.TabIndex = 5;
+            txtDescripcion.TabIndex = 2;
             // 
             // label4
             // 
@@ -115,7 +115,7 @@
             nudCapacidad.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             nudCapacidad.Name = "nudCapacidad";
             nudCapacidad.Size = new Size(144, 23);
-            nudCapacidad.TabIndex = 7;
+            nudCapacidad.TabIndex = 3;
             nudCapacidad.TextAlign = HorizontalAlignment.Right;
             // 
             // label5
@@ -135,7 +135,7 @@
             btAgregar.Location = new Point(248, 398);
             btAgregar.Name = "btAgregar";
             btAgregar.Size = new Size(84, 71);
-            btAgregar.TabIndex = 9;
+            btAgregar.TabIndex = 4;
             btAgregar.UseVisualStyleBackColor = true;
             btAgregar.Click += button1_Click;
             // 

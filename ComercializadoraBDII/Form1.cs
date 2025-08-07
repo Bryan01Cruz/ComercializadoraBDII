@@ -83,5 +83,82 @@ namespace ComercializadoraBDII
             Formularios.LiquidacionCosecha forma = new Formularios.LiquidacionCosecha();
             forma.ShowDialog();
         }
+
+        private void registrarAbonoAProductorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formularios.AbonosProductor forma = new Formularios.AbonosProductor();
+            forma.ShowDialog();
+        }
+
+        private void inventarioActualDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formularios.InventarioProductos forma = new Formularios.InventarioProductos();
+            forma.ShowDialog();
+        }
+
+        private void inventarioDeInsumosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formularios.ConsultarInsumos forma = new Formularios.ConsultarInsumos();
+            forma.ShowDialog();
+        }
+
+        private void reporteDeComprasYEntregasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formularios.OrdenesCompra forma = new Formularios.OrdenesCompra();
+            forma.ShowDialog();
+        }
+
+        private void consultarDatosDeProductoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void agregarClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formularios.RegistrarCliente forma = new Formularios.RegistrarCliente();
+            forma.ShowDialog();
+        }
+
+        private void facturarProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formularios.FacturarProductos forma = new Formularios.FacturarProductos();
+            forma.ShowDialog();
+        }
+
+        private void productoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formularios.ConsultaProductosAgricultor forma = new Formularios.ConsultaProductosAgricultor();
+            forma.ShowDialog();
+        }
+
+        private void fincasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formularios.ConsultaInsumosEntregados forma = new Formularios.ConsultaInsumosEntregados();
+            forma.ShowDialog();
+        }
+
+        private void lotesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formularios.Consultas.ProduccionPorProductor forma = new Formularios.Consultas.ProduccionPorProductor();
+            forma.ShowDialog();
+        }
+
+        private void saldoPendientePorProductorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formularios.Consultas.SaldoProductores forma = new Formularios.Consultas.SaldoProductores();
+            forma.ShowDialog();
+        }
+
+        private void utilidadPorCosechasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formularios.Consultas.UtilidadCosecha forma = new Formularios.Consultas.UtilidadCosecha();
+            forma.ShowDialog();
+        }
+
+        private void registrarPagoAProveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formularios.RegistrarPagoProveedor forma = new Formularios.RegistrarPagoProveedor();
+            forma.ShowDialog();
+        }
     }
 }

@@ -33,40 +33,38 @@
             productoresYFincasToolStripMenuItem = new ToolStripMenuItem();
             registrarProductorToolStripMenuItem = new ToolStripMenuItem();
             registrarFincaToolStripMenuItem = new ToolStripMenuItem();
-            consultarDatosDeProductoresToolStripMenuItem = new ToolStripMenuItem();
-            consultarLotesYFincasToolStripMenuItem = new ToolStripMenuItem();
             cultivosYProducciónToolStripMenuItem = new ToolStripMenuItem();
             asignarCultivoALoteToolStripMenuItem = new ToolStripMenuItem();
             registrarCosechaToolStripMenuItem = new ToolStripMenuItem();
             insumosToolStripMenuItem = new ToolStripMenuItem();
             registrarCompraAProveedorToolStripMenuItem = new ToolStripMenuItem();
             registrarEntregaAProductorToolStripMenuItem = new ToolStripMenuItem();
-            consultarDeudasPorInsumosToolStripMenuItem = new ToolStripMenuItem();
             reporteDeComprasYEntregasToolStripMenuItem = new ToolStripMenuItem();
             inventarioToolStripMenuItem = new ToolStripMenuItem();
             inventarioActualDeProductosToolStripMenuItem = new ToolStripMenuItem();
             inventarioDeInsumosToolStripMenuItem = new ToolStripMenuItem();
-            movimientosPorProductosToolStripMenuItem = new ToolStripMenuItem();
             agregarBodegaToolStripMenuItem = new ToolStripMenuItem();
             finaToolStripMenuItem = new ToolStripMenuItem();
             registrarLiquidaciónDeCosechaToolStripMenuItem = new ToolStripMenuItem();
             registrarAbonoAProductorToolStripMenuItem = new ToolStripMenuItem();
-            estadoDeCuentaDeProductoresToolStripMenuItem = new ToolStripMenuItem();
-            reporteFinancieroYSaldosToolStripMenuItem = new ToolStripMenuItem();
             proveedoresToolStripMenuItem = new ToolStripMenuItem();
             registrarProveedorToolStripMenuItem = new ToolStripMenuItem();
-            consultarHistorialDeComprasToolStripMenuItem = new ToolStripMenuItem();
             administraciónToolStripMenuItem = new ToolStripMenuItem();
             parametrosDelSistemaToolStripMenuItem = new ToolStripMenuItem();
             consultasToolStripMenuItem = new ToolStripMenuItem();
             productoresToolStripMenuItem = new ToolStripMenuItem();
             fincasToolStripMenuItem = new ToolStripMenuItem();
             lotesToolStripMenuItem = new ToolStripMenuItem();
-            consultaDeProducciónPorProductorLoteToolStripMenuItem = new ToolStripMenuItem();
+            saldoPendientePorProductorToolStripMenuItem = new ToolStripMenuItem();
+            utilidadPorCosechasToolStripMenuItem = new ToolStripMenuItem();
+            facturaciónToolStripMenuItem = new ToolStripMenuItem();
+            facturarProductosToolStripMenuItem = new ToolStripMenuItem();
+            agregarClienteToolStripMenuItem = new ToolStripMenuItem();
             sesiónToolStripMenuItem = new ToolStripMenuItem();
             cerrarSesiónToolStripMenuItem = new ToolStripMenuItem();
             salirDelSistemaToolStripMenuItem = new ToolStripMenuItem();
             pictureBox1 = new PictureBox();
+            registrarPagoAProveedorToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -74,16 +72,16 @@
             // menuStrip1
             // 
             menuStrip1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { productoresYFincasToolStripMenuItem, cultivosYProducciónToolStripMenuItem, insumosToolStripMenuItem, inventarioToolStripMenuItem, finaToolStripMenuItem, proveedoresToolStripMenuItem, administraciónToolStripMenuItem, consultasToolStripMenuItem, sesiónToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { productoresYFincasToolStripMenuItem, cultivosYProducciónToolStripMenuItem, insumosToolStripMenuItem, inventarioToolStripMenuItem, finaToolStripMenuItem, proveedoresToolStripMenuItem, administraciónToolStripMenuItem, consultasToolStripMenuItem, facturaciónToolStripMenuItem, sesiónToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(875, 25);
+            menuStrip1.Size = new Size(1005, 25);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // productoresYFincasToolStripMenuItem
             // 
-            productoresYFincasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarProductorToolStripMenuItem, registrarFincaToolStripMenuItem, consultarDatosDeProductoresToolStripMenuItem, consultarLotesYFincasToolStripMenuItem });
+            productoresYFincasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarProductorToolStripMenuItem, registrarFincaToolStripMenuItem });
             productoresYFincasToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             productoresYFincasToolStripMenuItem.Name = "productoresYFincasToolStripMenuItem";
             productoresYFincasToolStripMenuItem.Size = new Size(146, 21);
@@ -92,28 +90,16 @@
             // registrarProductorToolStripMenuItem
             // 
             registrarProductorToolStripMenuItem.Name = "registrarProductorToolStripMenuItem";
-            registrarProductorToolStripMenuItem.Size = new Size(269, 22);
+            registrarProductorToolStripMenuItem.Size = new Size(195, 22);
             registrarProductorToolStripMenuItem.Text = "Registrar Productor";
             registrarProductorToolStripMenuItem.Click += registrarProductorToolStripMenuItem_Click;
             // 
             // registrarFincaToolStripMenuItem
             // 
             registrarFincaToolStripMenuItem.Name = "registrarFincaToolStripMenuItem";
-            registrarFincaToolStripMenuItem.Size = new Size(269, 22);
+            registrarFincaToolStripMenuItem.Size = new Size(195, 22);
             registrarFincaToolStripMenuItem.Text = "Registrar Finca";
             registrarFincaToolStripMenuItem.Click += registrarFincaToolStripMenuItem_Click;
-            // 
-            // consultarDatosDeProductoresToolStripMenuItem
-            // 
-            consultarDatosDeProductoresToolStripMenuItem.Name = "consultarDatosDeProductoresToolStripMenuItem";
-            consultarDatosDeProductoresToolStripMenuItem.Size = new Size(269, 22);
-            consultarDatosDeProductoresToolStripMenuItem.Text = "Consultar datos de productores";
-            // 
-            // consultarLotesYFincasToolStripMenuItem
-            // 
-            consultarLotesYFincasToolStripMenuItem.Name = "consultarLotesYFincasToolStripMenuItem";
-            consultarLotesYFincasToolStripMenuItem.Size = new Size(269, 22);
-            consultarLotesYFincasToolStripMenuItem.Text = "Consultar Fincas";
             // 
             // cultivosYProducciónToolStripMenuItem
             // 
@@ -138,7 +124,7 @@
             // 
             // insumosToolStripMenuItem
             // 
-            insumosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarCompraAProveedorToolStripMenuItem, registrarEntregaAProductorToolStripMenuItem, consultarDeudasPorInsumosToolStripMenuItem, reporteDeComprasYEntregasToolStripMenuItem });
+            insumosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarCompraAProveedorToolStripMenuItem, registrarEntregaAProductorToolStripMenuItem, reporteDeComprasYEntregasToolStripMenuItem });
             insumosToolStripMenuItem.Name = "insumosToolStripMenuItem";
             insumosToolStripMenuItem.Size = new Size(72, 21);
             insumosToolStripMenuItem.Text = "Insumos";
@@ -146,32 +132,27 @@
             // registrarCompraAProveedorToolStripMenuItem
             // 
             registrarCompraAProveedorToolStripMenuItem.Name = "registrarCompraAProveedorToolStripMenuItem";
-            registrarCompraAProveedorToolStripMenuItem.Size = new Size(267, 22);
+            registrarCompraAProveedorToolStripMenuItem.Size = new Size(261, 22);
             registrarCompraAProveedorToolStripMenuItem.Text = "Registrar compra a proveedor";
             registrarCompraAProveedorToolStripMenuItem.Click += registrarCompraAProveedorToolStripMenuItem_Click;
             // 
             // registrarEntregaAProductorToolStripMenuItem
             // 
             registrarEntregaAProductorToolStripMenuItem.Name = "registrarEntregaAProductorToolStripMenuItem";
-            registrarEntregaAProductorToolStripMenuItem.Size = new Size(267, 22);
+            registrarEntregaAProductorToolStripMenuItem.Size = new Size(261, 22);
             registrarEntregaAProductorToolStripMenuItem.Text = "Registrar entrega a  productor";
             registrarEntregaAProductorToolStripMenuItem.Click += registrarEntregaAProductorToolStripMenuItem_Click;
-            // 
-            // consultarDeudasPorInsumosToolStripMenuItem
-            // 
-            consultarDeudasPorInsumosToolStripMenuItem.Name = "consultarDeudasPorInsumosToolStripMenuItem";
-            consultarDeudasPorInsumosToolStripMenuItem.Size = new Size(267, 22);
-            consultarDeudasPorInsumosToolStripMenuItem.Text = "Consultar deudas por insumos";
             // 
             // reporteDeComprasYEntregasToolStripMenuItem
             // 
             reporteDeComprasYEntregasToolStripMenuItem.Name = "reporteDeComprasYEntregasToolStripMenuItem";
-            reporteDeComprasYEntregasToolStripMenuItem.Size = new Size(267, 22);
-            reporteDeComprasYEntregasToolStripMenuItem.Text = "Reporte de compras y entregas";
+            reporteDeComprasYEntregasToolStripMenuItem.Size = new Size(261, 22);
+            reporteDeComprasYEntregasToolStripMenuItem.Text = "Recibir Orden de Compra";
+            reporteDeComprasYEntregasToolStripMenuItem.Click += reporteDeComprasYEntregasToolStripMenuItem_Click;
             // 
             // inventarioToolStripMenuItem
             // 
-            inventarioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { inventarioActualDeProductosToolStripMenuItem, inventarioDeInsumosToolStripMenuItem, movimientosPorProductosToolStripMenuItem, agregarBodegaToolStripMenuItem });
+            inventarioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { inventarioActualDeProductosToolStripMenuItem, inventarioDeInsumosToolStripMenuItem, agregarBodegaToolStripMenuItem });
             inventarioToolStripMenuItem.Name = "inventarioToolStripMenuItem";
             inventarioToolStripMenuItem.Size = new Size(82, 21);
             inventarioToolStripMenuItem.Text = "Inventario";
@@ -181,18 +162,14 @@
             inventarioActualDeProductosToolStripMenuItem.Name = "inventarioActualDeProductosToolStripMenuItem";
             inventarioActualDeProductosToolStripMenuItem.Size = new Size(263, 22);
             inventarioActualDeProductosToolStripMenuItem.Text = "Inventario actual de productos";
+            inventarioActualDeProductosToolStripMenuItem.Click += inventarioActualDeProductosToolStripMenuItem_Click;
             // 
             // inventarioDeInsumosToolStripMenuItem
             // 
             inventarioDeInsumosToolStripMenuItem.Name = "inventarioDeInsumosToolStripMenuItem";
             inventarioDeInsumosToolStripMenuItem.Size = new Size(263, 22);
             inventarioDeInsumosToolStripMenuItem.Text = "Inventario de insumos";
-            // 
-            // movimientosPorProductosToolStripMenuItem
-            // 
-            movimientosPorProductosToolStripMenuItem.Name = "movimientosPorProductosToolStripMenuItem";
-            movimientosPorProductosToolStripMenuItem.Size = new Size(263, 22);
-            movimientosPorProductosToolStripMenuItem.Text = "Movimientos por productos";
+            inventarioDeInsumosToolStripMenuItem.Click += inventarioDeInsumosToolStripMenuItem_Click;
             // 
             // agregarBodegaToolStripMenuItem
             // 
@@ -203,7 +180,7 @@
             // 
             // finaToolStripMenuItem
             // 
-            finaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarLiquidaciónDeCosechaToolStripMenuItem, registrarAbonoAProductorToolStripMenuItem, estadoDeCuentaDeProductoresToolStripMenuItem, reporteFinancieroYSaldosToolStripMenuItem });
+            finaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarLiquidaciónDeCosechaToolStripMenuItem, registrarAbonoAProductorToolStripMenuItem });
             finaToolStripMenuItem.Name = "finaToolStripMenuItem";
             finaToolStripMenuItem.Size = new Size(72, 21);
             finaToolStripMenuItem.Text = "Finanzas";
@@ -211,31 +188,20 @@
             // registrarLiquidaciónDeCosechaToolStripMenuItem
             // 
             registrarLiquidaciónDeCosechaToolStripMenuItem.Name = "registrarLiquidaciónDeCosechaToolStripMenuItem";
-            registrarLiquidaciónDeCosechaToolStripMenuItem.Size = new Size(278, 22);
+            registrarLiquidaciónDeCosechaToolStripMenuItem.Size = new Size(275, 22);
             registrarLiquidaciónDeCosechaToolStripMenuItem.Text = "Registrar liquidación a productor";
             registrarLiquidaciónDeCosechaToolStripMenuItem.Click += registrarLiquidaciónDeCosechaToolStripMenuItem_Click;
             // 
             // registrarAbonoAProductorToolStripMenuItem
             // 
             registrarAbonoAProductorToolStripMenuItem.Name = "registrarAbonoAProductorToolStripMenuItem";
-            registrarAbonoAProductorToolStripMenuItem.Size = new Size(278, 22);
+            registrarAbonoAProductorToolStripMenuItem.Size = new Size(275, 22);
             registrarAbonoAProductorToolStripMenuItem.Text = "Registrar abono a productor";
-            // 
-            // estadoDeCuentaDeProductoresToolStripMenuItem
-            // 
-            estadoDeCuentaDeProductoresToolStripMenuItem.Name = "estadoDeCuentaDeProductoresToolStripMenuItem";
-            estadoDeCuentaDeProductoresToolStripMenuItem.Size = new Size(278, 22);
-            estadoDeCuentaDeProductoresToolStripMenuItem.Text = "Estado de cuenta de productores";
-            // 
-            // reporteFinancieroYSaldosToolStripMenuItem
-            // 
-            reporteFinancieroYSaldosToolStripMenuItem.Name = "reporteFinancieroYSaldosToolStripMenuItem";
-            reporteFinancieroYSaldosToolStripMenuItem.Size = new Size(278, 22);
-            reporteFinancieroYSaldosToolStripMenuItem.Text = "Saldos";
+            registrarAbonoAProductorToolStripMenuItem.Click += registrarAbonoAProductorToolStripMenuItem_Click;
             // 
             // proveedoresToolStripMenuItem
             // 
-            proveedoresToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarProveedorToolStripMenuItem, consultarHistorialDeComprasToolStripMenuItem });
+            proveedoresToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registrarProveedorToolStripMenuItem, registrarPagoAProveedorToolStripMenuItem });
             proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
             proveedoresToolStripMenuItem.Size = new Size(96, 21);
             proveedoresToolStripMenuItem.Text = "Proveedores";
@@ -243,15 +209,9 @@
             // registrarProveedorToolStripMenuItem
             // 
             registrarProveedorToolStripMenuItem.Name = "registrarProveedorToolStripMenuItem";
-            registrarProveedorToolStripMenuItem.Size = new Size(261, 22);
+            registrarProveedorToolStripMenuItem.Size = new Size(243, 22);
             registrarProveedorToolStripMenuItem.Text = "Registrar Proveedor";
             registrarProveedorToolStripMenuItem.Click += registrarProveedorToolStripMenuItem_Click;
-            // 
-            // consultarHistorialDeComprasToolStripMenuItem
-            // 
-            consultarHistorialDeComprasToolStripMenuItem.Name = "consultarHistorialDeComprasToolStripMenuItem";
-            consultarHistorialDeComprasToolStripMenuItem.Size = new Size(261, 22);
-            consultarHistorialDeComprasToolStripMenuItem.Text = "Consultar historial de compras";
             // 
             // administraciónToolStripMenuItem
             // 
@@ -269,7 +229,7 @@
             // 
             // consultasToolStripMenuItem
             // 
-            consultasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { productoresToolStripMenuItem, fincasToolStripMenuItem, lotesToolStripMenuItem, consultaDeProducciónPorProductorLoteToolStripMenuItem });
+            consultasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { productoresToolStripMenuItem, fincasToolStripMenuItem, lotesToolStripMenuItem, saldoPendientePorProductorToolStripMenuItem, utilidadPorCosechasToolStripMenuItem });
             consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             consultasToolStripMenuItem.Size = new Size(79, 21);
             consultasToolStripMenuItem.Text = "Consultas";
@@ -277,26 +237,58 @@
             // productoresToolStripMenuItem
             // 
             productoresToolStripMenuItem.Name = "productoresToolStripMenuItem";
-            productoresToolStripMenuItem.Size = new Size(349, 22);
-            productoresToolStripMenuItem.Text = "Productores";
+            productoresToolStripMenuItem.Size = new Size(290, 22);
+            productoresToolStripMenuItem.Text = "Productos por Productor";
+            productoresToolStripMenuItem.Click += productoresToolStripMenuItem_Click;
             // 
             // fincasToolStripMenuItem
             // 
             fincasToolStripMenuItem.Name = "fincasToolStripMenuItem";
-            fincasToolStripMenuItem.Size = new Size(349, 22);
-            fincasToolStripMenuItem.Text = "Fincas";
+            fincasToolStripMenuItem.Size = new Size(290, 22);
+            fincasToolStripMenuItem.Text = "Insumos Entregados Por Agricultor";
+            fincasToolStripMenuItem.Click += fincasToolStripMenuItem_Click;
             // 
             // lotesToolStripMenuItem
             // 
             lotesToolStripMenuItem.Name = "lotesToolStripMenuItem";
-            lotesToolStripMenuItem.Size = new Size(349, 22);
-            lotesToolStripMenuItem.Text = "Lotes";
+            lotesToolStripMenuItem.Size = new Size(290, 22);
+            lotesToolStripMenuItem.Text = "Producción por Agricultor";
+            lotesToolStripMenuItem.Click += lotesToolStripMenuItem_Click;
             // 
-            // consultaDeProducciónPorProductorLoteToolStripMenuItem
+            // saldoPendientePorProductorToolStripMenuItem
             // 
-            consultaDeProducciónPorProductorLoteToolStripMenuItem.Name = "consultaDeProducciónPorProductorLoteToolStripMenuItem";
-            consultaDeProducciónPorProductorLoteToolStripMenuItem.Size = new Size(349, 22);
-            consultaDeProducciónPorProductorLoteToolStripMenuItem.Text = "Consulta de producción por Productor / Lote";
+            saldoPendientePorProductorToolStripMenuItem.Name = "saldoPendientePorProductorToolStripMenuItem";
+            saldoPendientePorProductorToolStripMenuItem.Size = new Size(290, 22);
+            saldoPendientePorProductorToolStripMenuItem.Text = "Saldo Pendiente por productor";
+            saldoPendientePorProductorToolStripMenuItem.Click += saldoPendientePorProductorToolStripMenuItem_Click;
+            // 
+            // utilidadPorCosechasToolStripMenuItem
+            // 
+            utilidadPorCosechasToolStripMenuItem.Name = "utilidadPorCosechasToolStripMenuItem";
+            utilidadPorCosechasToolStripMenuItem.Size = new Size(290, 22);
+            utilidadPorCosechasToolStripMenuItem.Text = "Utilidad por Cosechas";
+            utilidadPorCosechasToolStripMenuItem.Click += utilidadPorCosechasToolStripMenuItem_Click;
+            // 
+            // facturaciónToolStripMenuItem
+            // 
+            facturaciónToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { facturarProductosToolStripMenuItem, agregarClienteToolStripMenuItem });
+            facturaciónToolStripMenuItem.Name = "facturaciónToolStripMenuItem";
+            facturaciónToolStripMenuItem.Size = new Size(90, 21);
+            facturaciónToolStripMenuItem.Text = "Facturación";
+            // 
+            // facturarProductosToolStripMenuItem
+            // 
+            facturarProductosToolStripMenuItem.Name = "facturarProductosToolStripMenuItem";
+            facturarProductosToolStripMenuItem.Size = new Size(192, 22);
+            facturarProductosToolStripMenuItem.Text = "Facturar productos";
+            facturarProductosToolStripMenuItem.Click += facturarProductosToolStripMenuItem_Click;
+            // 
+            // agregarClienteToolStripMenuItem
+            // 
+            agregarClienteToolStripMenuItem.Name = "agregarClienteToolStripMenuItem";
+            agregarClienteToolStripMenuItem.Size = new Size(192, 22);
+            agregarClienteToolStripMenuItem.Text = "Agregar Cliente";
+            agregarClienteToolStripMenuItem.Click += agregarClienteToolStripMenuItem_Click;
             // 
             // sesiónToolStripMenuItem
             // 
@@ -325,16 +317,23 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(875, 506);
+            pictureBox1.Size = new Size(1005, 506);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
+            // 
+            // registrarPagoAProveedorToolStripMenuItem
+            // 
+            registrarPagoAProveedorToolStripMenuItem.Name = "registrarPagoAProveedorToolStripMenuItem";
+            registrarPagoAProveedorToolStripMenuItem.Size = new Size(243, 22);
+            registrarPagoAProveedorToolStripMenuItem.Text = "Registrar Pago a Proveedor";
+            registrarPagoAProveedorToolStripMenuItem.Click += registrarPagoAProveedorToolStripMenuItem_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(875, 506);
+            ClientSize = new Size(1005, 506);
             ControlBox = false;
             Controls.Add(menuStrip1);
             Controls.Add(pictureBox1);
@@ -357,28 +356,21 @@
         private ToolStripMenuItem productoresYFincasToolStripMenuItem;
         private ToolStripMenuItem registrarProductorToolStripMenuItem;
         private ToolStripMenuItem registrarFincaToolStripMenuItem;
-        private ToolStripMenuItem consultarDatosDeProductoresToolStripMenuItem;
-        private ToolStripMenuItem consultarLotesYFincasToolStripMenuItem;
         private ToolStripMenuItem cultivosYProducciónToolStripMenuItem;
         private ToolStripMenuItem asignarCultivoALoteToolStripMenuItem;
         private ToolStripMenuItem registrarCosechaToolStripMenuItem;
         private ToolStripMenuItem insumosToolStripMenuItem;
         private ToolStripMenuItem registrarCompraAProveedorToolStripMenuItem;
         private ToolStripMenuItem registrarEntregaAProductorToolStripMenuItem;
-        private ToolStripMenuItem consultarDeudasPorInsumosToolStripMenuItem;
         private ToolStripMenuItem reporteDeComprasYEntregasToolStripMenuItem;
         private ToolStripMenuItem inventarioToolStripMenuItem;
         private ToolStripMenuItem inventarioActualDeProductosToolStripMenuItem;
         private ToolStripMenuItem inventarioDeInsumosToolStripMenuItem;
-        private ToolStripMenuItem movimientosPorProductosToolStripMenuItem;
         private ToolStripMenuItem finaToolStripMenuItem;
         private ToolStripMenuItem registrarLiquidaciónDeCosechaToolStripMenuItem;
         private ToolStripMenuItem registrarAbonoAProductorToolStripMenuItem;
-        private ToolStripMenuItem estadoDeCuentaDeProductoresToolStripMenuItem;
-        private ToolStripMenuItem reporteFinancieroYSaldosToolStripMenuItem;
         private ToolStripMenuItem proveedoresToolStripMenuItem;
         private ToolStripMenuItem registrarProveedorToolStripMenuItem;
-        private ToolStripMenuItem consultarHistorialDeComprasToolStripMenuItem;
         private ToolStripMenuItem administraciónToolStripMenuItem;
         private ToolStripMenuItem parametrosDelSistemaToolStripMenuItem;
         private ToolStripMenuItem consultasToolStripMenuItem;
@@ -390,6 +382,11 @@
         private ToolStripMenuItem productoresToolStripMenuItem;
         private ToolStripMenuItem fincasToolStripMenuItem;
         private ToolStripMenuItem lotesToolStripMenuItem;
-        private ToolStripMenuItem consultaDeProducciónPorProductorLoteToolStripMenuItem;
+        private ToolStripMenuItem facturaciónToolStripMenuItem;
+        private ToolStripMenuItem facturarProductosToolStripMenuItem;
+        private ToolStripMenuItem agregarClienteToolStripMenuItem;
+        private ToolStripMenuItem saldoPendientePorProductorToolStripMenuItem;
+        private ToolStripMenuItem utilidadPorCosechasToolStripMenuItem;
+        private ToolStripMenuItem registrarPagoAProveedorToolStripMenuItem;
     }
 }

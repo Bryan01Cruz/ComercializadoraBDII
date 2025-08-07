@@ -51,7 +51,15 @@ namespace ComercializadoraBDII.Formularios
             dgvInsumos.Rows[nuevaFila].Cells["Insumo"].Value = txtInsumo.Text;
             dgvInsumos.Rows[nuevaFila].Cells["Cantidad"].Value = nudCantidad.Value;
             dgvInsumos.Rows[nuevaFila].Cells["Unidad"].Value = txtUnidad.Text;
-            dgvInsumos.Rows[nuevaFila].Cells["Precio"].Value = nudPrecio.Value;
+            if (cbbDescuento.Text == "0%")
+            {
+                dgvInsumos.Rows[nuevaFila].Cells["Descuento"].Value = nudPrecio.Value * 0;
+            }
+            else
+            {
+                dgvInsumos.Rows[nuevaFila].Cells["Descuento"].Value = nudPrecio.Value * Convert.ToDecimal(0.05);
+            }
+                dgvInsumos.Rows[nuevaFila].Cells["Precio"].Value = nudPrecio.Value;
             dgvInsumos.Rows[nuevaFila].Cells["Total"].Value = nudPrecio.Value * nudCantidad.Value;
 
             ConectorSQL.SumarTotal(dgvInsumos, "Total", txtSubtotal);
@@ -65,12 +73,13 @@ namespace ComercializadoraBDII.Formularios
             txtUnidad.Clear();
 
             txtImpuesto.Text = (Convert.ToDouble(txtSubtotal.Text) * 0.15).ToString();
-            txtTotal.Text = (Convert.ToDouble(txtSubtotal.Text) + Convert.ToDouble(txtImpuesto.Text)).ToString();
+            ConectorSQL.SumarTotal(dgvInsumos,"Descuento",txtDescuento);
+            txtTotal.Text = (Convert.ToDouble(txtSubtotal.Text) + Convert.ToDouble(txtImpuesto.Text) - Convert.ToDouble(txtDescuento.Text)).ToString();
         }
 
         private void btEliminar_Click(object sender, EventArgs e)
         {
-            // Validar si hay fila seleccionada
+
             if (dgvInsumos.CurrentRow == null || dgvInsumos.CurrentRow.IsNewRow)
             {
                 MessageBox.Show("No hay ninguna fila válida seleccionada para eliminar.",
@@ -86,7 +95,9 @@ namespace ComercializadoraBDII.Formularios
                 dgvInsumos.Rows.Remove(dgvInsumos.CurrentRow);
                 ConectorSQL.SumarTotal(dgvInsumos, "Total", txtSubtotal);
                 txtImpuesto.Text = (Convert.ToDouble(txtSubtotal.Text) * 0.15).ToString();
-                txtTotal.Text = (Convert.ToDouble(txtSubtotal.Text) + Convert.ToDouble(txtImpuesto.Text)).ToString();
+                ConectorSQL.SumarTotal(dgvInsumos, "Descuento", txtDescuento);
+                txtTotal.Text = (Convert.ToDouble(txtSubtotal.Text) + Convert.ToDouble(txtImpuesto.Text) - Convert.ToDouble(txtDescuento.Text)).ToString();
+
             }
         }
 
@@ -100,14 +111,6 @@ namespace ComercializadoraBDII.Formularios
                 return;
             }
 
-            // Copia datos a los Text
-            txtCodigoInsumo.Text = fila.Cells["Codigo"].Value?.ToString();
-            txtInsumo.Text = fila.Cells["Producto"].Value?.ToString();
-            txtUnidad.Text = fila.Cells["Unidad"].Value?.ToString();
-            nudCantidad.Value = Convert.ToDecimal(fila.Cells["Cantidad"].Value);
-            nudPrecio.Value = Convert.ToDecimal(fila.Cells["Precio"].Value);
-
-            // Confirmar antes de eliminar
             DialogResult confirmar = MessageBox.Show("¿Desea actualizar esta fila?",
                                                      "Confirmar actualización", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -116,13 +119,20 @@ namespace ComercializadoraBDII.Formularios
                 dgvInsumos.Rows.Remove(fila);
                 ConectorSQL.SumarTotal(dgvInsumos, "Total", txtSubtotal);
                 txtImpuesto.Text = (Convert.ToDouble(txtSubtotal.Text) * 0.15).ToString();
-                txtTotal.Text = (Convert.ToDouble(txtSubtotal.Text) + Convert.ToDouble(txtImpuesto.Text)).ToString();
+                ConectorSQL.SumarTotal(dgvInsumos, "Descuento", txtDescuento);
+                txtTotal.Text = (Convert.ToDouble(txtSubtotal.Text) + Convert.ToDouble(txtImpuesto.Text) - Convert.ToDouble(txtDescuento.Text)).ToString();
+                txtCodigoInsumo.Text = fila.Cells["Codigo"].Value?.ToString();
+                txtInsumo.Text = fila.Cells["Insumo"].Value?.ToString();
+                txtUnidad.Text = fila.Cells["Unidad"].Value?.ToString();
+                nudCantidad.Value = Convert.ToDecimal(fila.Cells["Cantidad"].Value);
+                nudPrecio.Value = Convert.ToDecimal(fila.Cells["Precio"].Value);
             }
         }
 
         private void CompraInsumos_Load(object sender, EventArgs e)
         {
             cbbEstado.Text = "Pendiente";
+            cbbDescuento.Text = "0%";
         }
 
         private void txtCodigoProveedor_Leave(object sender, EventArgs e)
@@ -203,9 +213,69 @@ namespace ComercializadoraBDII.Formularios
             }
         }
 
+        public static DataTable CrearTablaDetalle()
+        {
+            var dt = new DataTable();
+            dt.Columns.Add("Codigo", typeof(string));
+            dt.Columns.Add("Insumo", typeof(string));
+            dt.Columns.Add("Cantidad", typeof(int));
+            dt.Columns.Add("Unidad", typeof(string));
+            dt.Columns.Add("Precio", typeof(decimal));
+            dt.Columns.Add("Descuento", typeof(decimal));
+            return dt;
+        }
+
+        public static DataTable CargarDesdeGrid(DataGridView dgv)
+        {
+            var dt = CrearTablaDetalle();
+            foreach (DataGridViewRow fila in dgv.Rows)
+            {
+                if (fila.IsNewRow) continue;
+
+                dt.Rows.Add(
+                    fila.Cells["Codigo"].Value?.ToString(),
+                    fila.Cells["Insumo"].Value?.ToString(),
+                    Convert.ToInt32(fila.Cells["Cantidad"].Value ?? 0),
+                    fila.Cells["Unidad"].Value?.ToString(),
+                    Convert.ToDecimal(fila.Cells["Precio"].Value ?? 0),
+                    Convert.ToDecimal(fila.Cells["Descuento"].Value ?? 0)
+                );
+            }
+            return dt;
+        }
+
         private void btGuardar_Click(object sender, EventArgs e)
         {
 
+            var conector = new ConectorSQL();
+            var tablaDetalle = CargarDesdeGrid(dgvInsumos);
+
+            var parametros = new[]
+            {
+            conector.CrearParametro("@proveedorID", Convert.ToInt32(txtCodigoProveedor.Text)),
+            conector.CrearParametro("@fechaCompra", dtpCompra.Value),
+            conector.CrearParametro("@fechaVencimiento", dtpVencimiento.Value),
+            new SqlParameter("@tDetalle", SqlDbType.Structured)
+        {
+            TypeName = "DetalleInsumo",
+            Value = tablaDetalle
         }
-    }
+        };
+
+            bool resultado = conector.EjecutarSP("spRegistrarOrdenInsumos", parametros);
+            MessageBox.Show(resultado ? "Registro exitoso" : "Ocurrió un error", "Resultado", MessageBoxButtons.OK, resultado ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+            dgvInsumos.Rows.Clear();
+            txtDescuento.Clear();
+            txtImpuesto.Clear();
+            txtTotal.Clear();
+            txtSubtotal.Clear();
+            txtCodigoInsumo.Clear();
+            txtInsumo.Clear();
+            txtProveedor.Clear();
+            txtCodigoProveedor.Clear();
+            nudCantidad.Value = 0;
+            nudPrecio.Value = 0;
+            cbbDescuento.Text = "0%";
+        }
+}
 }

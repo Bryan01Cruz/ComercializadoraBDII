@@ -1,0 +1,225 @@
+﻿namespace ComercializadoraBDII.Formularios.Consultas
+{
+    partial class UtilidadCosecha
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UtilidadCosecha));
+            splitContainer1 = new SplitContainer();
+            groupBox1 = new GroupBox();
+            btBuscar = new Button();
+            txtBuscar = new TextBox();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
+            dgvUtilidad = new DataGridView();
+            label2 = new Label();
+            label3 = new Label();
+            Nombre = new DataGridViewTextBoxColumn();
+            CosechaID = new DataGridViewTextBoxColumn();
+            Costo = new DataGridViewTextBoxColumn();
+            Utilidad = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUtilidad).BeginInit();
+            SuspendLayout();
+            // 
+            // splitContainer1
+            // 
+            splitContainer1.Dock = DockStyle.Fill;
+            splitContainer1.Location = new Point(0, 0);
+            splitContainer1.Name = "splitContainer1";
+            splitContainer1.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            splitContainer1.Panel1.Controls.Add(groupBox1);
+            splitContainer1.Panel1.Controls.Add(btBuscar);
+            splitContainer1.Panel1.Controls.Add(txtBuscar);
+            splitContainer1.Panel1.Controls.Add(label1);
+            splitContainer1.Panel1.Controls.Add(pictureBox1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.Controls.Add(dgvUtilidad);
+            splitContainer1.Size = new Size(800, 475);
+            splitContainer1.SplitterDistance = 177;
+            splitContainer1.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(384, 68);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(217, 71);
+            groupBox1.TabIndex = 4;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Buscar por";
+            // 
+            // btBuscar
+            // 
+            btBuscar.BackgroundImage = (Image)resources.GetObject("btBuscar.BackgroundImage");
+            btBuscar.BackgroundImageLayout = ImageLayout.Stretch;
+            btBuscar.Location = new Point(607, 75);
+            btBuscar.Name = "btBuscar";
+            btBuscar.Size = new Size(75, 63);
+            btBuscar.TabIndex = 2;
+            btBuscar.UseVisualStyleBackColor = true;
+            btBuscar.Click += btBuscar_Click;
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Location = new Point(384, 145);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(298, 23);
+            txtBuscar.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(384, 33);
+            label1.Name = "label1";
+            label1.Size = new Size(298, 32);
+            label1.TabIndex = 1;
+            label1.Text = "UTILIDAD POR COSECHA";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(157, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(206, 156);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // dgvUtilidad
+            // 
+            dgvUtilidad.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUtilidad.Columns.AddRange(new DataGridViewColumn[] { Nombre, CosechaID, Costo, Utilidad });
+            dgvUtilidad.Dock = DockStyle.Fill;
+            dgvUtilidad.Location = new Point(0, 0);
+            dgvUtilidad.Name = "dgvUtilidad";
+            dgvUtilidad.ReadOnly = true;
+            dgvUtilidad.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvUtilidad.Size = new Size(800, 294);
+            dgvUtilidad.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(39, 32);
+            label2.Name = "label2";
+            label2.Size = new Size(58, 17);
+            label2.TabIndex = 0;
+            label2.Text = "Nombre";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(113, 32);
+            label3.Name = "label3";
+            label3.Size = new Size(71, 17);
+            label3.TabIndex = 1;
+            label3.Text = "CosechaID";
+            // 
+            // Nombre
+            // 
+            Nombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Nombre.DataPropertyName = "Nombre";
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
+            // 
+            // CosechaID
+            // 
+            CosechaID.DataPropertyName = "CosechaID";
+            CosechaID.HeaderText = "CosechaID";
+            CosechaID.Name = "CosechaID";
+            CosechaID.ReadOnly = true;
+            // 
+            // Costo
+            // 
+            Costo.DataPropertyName = "Costo";
+            Costo.HeaderText = "Costo";
+            Costo.Name = "Costo";
+            Costo.ReadOnly = true;
+            // 
+            // Utilidad
+            // 
+            Utilidad.DataPropertyName = "Utilidad";
+            Utilidad.HeaderText = "Utilidad";
+            Utilidad.Name = "Utilidad";
+            Utilidad.ReadOnly = true;
+            Utilidad.Width = 150;
+            // 
+            // UtilidadCosecha
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 475);
+            Controls.Add(splitContainer1);
+            HelpButton = true;
+            Name = "UtilidadCosecha";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Utilidad por Cosecha";
+            Load += UtilidadCosecha_Load;
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel1.PerformLayout();
+            splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUtilidad).EndInit();
+            ResumeLayout(false);
+        }
+
+        #endregion
+
+        private SplitContainer splitContainer1;
+        private PictureBox pictureBox1;
+        private GroupBox groupBox1;
+        private Button btBuscar;
+        private TextBox txtBuscar;
+        private Label label1;
+        private DataGridView dgvUtilidad;
+        private Label label3;
+        private Label label2;
+        private DataGridViewTextBoxColumn Nombre;
+        private DataGridViewTextBoxColumn CosechaID;
+        private DataGridViewTextBoxColumn Costo;
+        private DataGridViewTextBoxColumn Utilidad;
+    }
+}

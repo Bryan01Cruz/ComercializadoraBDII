@@ -138,6 +138,7 @@ public class ConectorSQL
             MessageBox.Show("Datos guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+
         public void CargarComboSoloNombre(
         ComboBox combo,
         string nombreSP,

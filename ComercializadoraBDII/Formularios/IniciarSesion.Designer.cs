@@ -75,7 +75,7 @@
             txtUsuario.Location = new Point(166, 263);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(221, 23);
-            txtUsuario.TabIndex = 3;
+            txtUsuario.TabIndex = 1;
             // 
             // label3
             // 
@@ -93,7 +93,7 @@
             txtContrasena.Name = "txtContrasena";
             txtContrasena.PasswordChar = '*';
             txtContrasena.Size = new Size(169, 23);
-            txtContrasena.TabIndex = 5;
+            txtContrasena.TabIndex = 2;
             // 
             // chkVer
             // 
@@ -113,7 +113,7 @@
             btIniciarSesion.Location = new Point(188, 332);
             btIniciarSesion.Name = "btIniciarSesion";
             btIniciarSesion.Size = new Size(104, 27);
-            btIniciarSesion.TabIndex = 7;
+            btIniciarSesion.TabIndex = 3;
             btIniciarSesion.Text = "Iniciar sesión";
             btIniciarSesion.UseVisualStyleBackColor = true;
             btIniciarSesion.Click += button1_Click;
@@ -135,6 +135,7 @@
             Name = "IniciarSesion";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Comercializadora Agrícola DBII";
+            Load += IniciarSesion_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

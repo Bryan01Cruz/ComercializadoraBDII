@@ -229,8 +229,65 @@ namespace ComercializadoraBDII.Formularios
             }
         }
 
+        public static DataTable CrearTablaDetalle()
+        {
+            var dt = new DataTable();
+            dt.Columns.Add("Codigo", typeof(string));
+            dt.Columns.Add("Producto", typeof(string));
+            dt.Columns.Add("Cantidad", typeof(int));
+            dt.Columns.Add("Unidad", typeof(string));
+            dt.Columns.Add("Precio", typeof(decimal));
+            
+            return dt;
+        }
+
+        public static DataTable CargarDesdeGrid(DataGridView dgv)
+        {
+            var dt = CrearTablaDetalle();
+            foreach (DataGridViewRow fila in dgv.Rows)
+            {
+                if (fila.IsNewRow) continue;
+
+                dt.Rows.Add(
+                    fila.Cells["Codigo"].Value?.ToString(),
+                    fila.Cells["Producto"].Value?.ToString(),
+                    Convert.ToInt32(fila.Cells["Cantidad"].Value ?? 0),
+                    fila.Cells["Unidad"].Value?.ToString(),
+                    Convert.ToDecimal(fila.Cells["Precio"].Value ?? 0)
+                );
+            }
+            return dt;
+        }
+
         private void btGuardar_Click(object sender, EventArgs e)
         {
+            var conector = new ConectorSQL();
+            var tablaDetalle = CargarDesdeGrid(dgvCosecha);
+
+            var parametros = new[]
+            {
+            conector.CrearParametro("@agricultorID", Convert.ToInt32(txtCodigoProductor.Text)),
+            conector.CrearParametro("@finca", cbbFincas.Text),
+            conector.CrearParametro("@bodega", txtBodega.Text),
+            conector.CrearParametro("@fecha", dtpFechaEntrega.Value),
+            new SqlParameter("@tDetalle", SqlDbType.Structured)
+        {
+            TypeName = "DetalleCosecha",
+            Value = tablaDetalle
+        }
+    };
+
+            bool resultado = conector.EjecutarSP("spRegistrarCosecha", parametros);
+            MessageBox.Show(resultado ? "Registro exitoso" : "Ocurrió un error", "Resultado", MessageBoxButtons.OK, resultado ? MessageBoxIcon.Information : MessageBoxIcon.Error);
+            dgvCosecha.Rows.Clear();
+            txtBodega.Clear();
+            txtCodigoBodega.Clear();
+            nudDisponible.Value = 0;
+            txtCodigo.Clear();
+            nudCantidad.Value = 0;
+            txtTotal.Clear();
+            dtpFechaEntrega.Value= DateTime.Now;
+
 
         }
 

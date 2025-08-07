@@ -12,16 +12,59 @@ using System.Windows.Forms;
 
 namespace ComercializadoraBDII.Formularios
 {
-    public partial class LiquidacionCosecha : Form
+    public partial class AbonosProductor : Form
     {
-        public LiquidacionCosecha()
+        public AbonosProductor()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void txtCodigoProductor_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCodigo.Text) || cbbCosecha.Text == "" || cbbMetodo.Text == "" || nudMonto.Value == 0)
+            try
+            {
+                string codigo = txtCodigoProductor.Text.Trim();
+
+                var conector = new ConectorSQL();
+                var parametros = new SqlParameter[]
+                {
+                    conector.CrearParametro("@Codigo", codigo)
+                };
+
+                var conector2 = new ConectorSQL();
+                var parametros2 = new SqlParameter[]
+                {
+                        conector2.CrearParametro("@Codigo", codigo)
+                };
+
+                conector2.CargarComboSoloNombre(cbbCosecha, "spBuscarCosechaCodigo", "CosechaID", "", parametros2);
+                DataTable resultado = conector.EjecutarConsulta("spBuscarProductor", parametros);
+
+
+                if (resultado.Rows.Count > 0)
+                {
+                    txtProductor.Text = resultado.Rows[0]["Nombre"].ToString();
+                }
+                else
+                {
+                    txtProductor.Text = string.Empty;
+                    MessageBox.Show("No se encontró el código.", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtProductor.Focus();
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Error de conexión o ejecución de consulta:\n{ex.Message}", "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btAgregar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCodigoProductor.Text) || cbbCosecha.Text == "" || cbbMetodo.Text == "" || nudMonto.Value == 0)
             {
                 MessageBox.Show("Ingrese todos los campos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -33,19 +76,20 @@ namespace ComercializadoraBDII.Formularios
 
                     SqlParameter[] parametros = new SqlParameter[]
                 {
-                    conector.CrearParametro("@agricultorID", txtCodigo.Text.Trim()),
+                    conector.CrearParametro("@agricultorID", txtCodigoProductor.Text.Trim()),
                     conector.CrearParametro("@cosechaID", cbbCosecha.Text.Trim()),
                     conector.CrearParametro("@fecha", dtpFecha.Text),
                     conector.CrearParametro("@metodoPago", cbbMetodo.Text),
                     conector.CrearParametro("@monto", nudMonto.Value),
                 };
 
-                    bool resultado = conector.EjecutarSP("spRegistrarLiquidacionAgricultor", parametros);
+                    bool resultado = conector.EjecutarSP("spRegistrarAbonoAgricultor", parametros);
 
                     if (resultado)
                     {
-                        MessageBox.Show("Liquidación registrada exitosamente", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtCodigo.Clear();
+                        MessageBox.Show("Abono registrado exitosamente", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtCodigoProductor.Clear();
+                        txtProductor.Clear();
                         cbbCosecha.Text = "";
                         dtpFecha.Value = DateTime.Now;
                         cbbMetodo.Text = "";
@@ -67,67 +111,21 @@ namespace ComercializadoraBDII.Formularios
             }
         }
 
-        private void txtCodigo_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                string codigo = txtCodigo.Text.Trim();
-
-                var conector = new ConectorSQL();
-                var parametros = new SqlParameter[]
-                {
-                    conector.CrearParametro("@Codigo", codigo)
-                };
-
-                var conector2 = new ConectorSQL();
-                var parametros2 = new SqlParameter[]
-                {
-                        conector2.CrearParametro("@Codigo", codigo)
-                };
-
-                conector2.CargarComboSoloNombre(cbbCosecha, "spBuscarCosechaCodigo", "CosechaID", "", parametros2);
-                DataTable resultado = conector.EjecutarConsulta("spBuscarProductor", parametros);
-
-
-                if (resultado.Rows.Count > 0)
-                {
-                    txtNombre.Text = resultado.Rows[0]["Nombre"].ToString();
-                }
-                else
-                {
-                    txtNombre.Text = string.Empty;
-                    MessageBox.Show("No se encontró el código.", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtCodigo.Focus();
-                }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show($"Error de conexión o ejecución de consulta:\n{ex.Message}", "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void cbbCosecha_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                if (!int.TryParse(txtCodigo.Text, out int agricultorId))
+                if (!int.TryParse(txtCodigoProductor.Text, out int agricultorId))
                 {
-               
                     return;
                 }
 
-       
                 var con = new ConectorSQL();
                 string sql = @"SELECT dbo.fLiquidacionPendienteAgricultorPorCosecha
                    (@cosechaID, @agricultorID)";
 
                 if (!int.TryParse(cbbCosecha.Text?.ToString(), out int cosechaId))
                 {
-          
                     return;
                 }
 
@@ -139,7 +137,7 @@ namespace ComercializadoraBDII.Formularios
 
                 decimal saldo = Convert.ToDecimal(con.EjecutarEscalar(sql, param));
 
-                nudMonto.Value = saldo;
+                nudSaldo.Value = saldo;
             }
             catch (SqlException ex)
             {
@@ -151,6 +149,11 @@ namespace ComercializadoraBDII.Formularios
                 MessageBox.Show($"Ocurrió un error inesperado:\n{ex.Message}",
                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void AbonosProductor_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

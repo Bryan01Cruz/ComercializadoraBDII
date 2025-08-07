@@ -83,7 +83,7 @@
             txtCodigoProductor.Location = new Point(308, 245);
             txtCodigoProductor.Name = "txtCodigoProductor";
             txtCodigoProductor.Size = new Size(116, 23);
-            txtCodigoProductor.TabIndex = 3;
+            txtCodigoProductor.TabIndex = 1;
             txtCodigoProductor.TextAlign = HorizontalAlignment.Center;
             txtCodigoProductor.Leave += txtCodigoProductor_Leave;
             // 
@@ -121,7 +121,7 @@
             txtFinca.Location = new Point(270, 313);
             txtFinca.Name = "txtFinca";
             txtFinca.Size = new Size(183, 23);
-            txtFinca.TabIndex = 8;
+            txtFinca.TabIndex = 2;
             // 
             // label5
             // 
@@ -139,7 +139,7 @@
             txtDireccion.Multiline = true;
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(224, 52);
-            txtDireccion.TabIndex = 10;
+            txtDireccion.TabIndex = 3;
             // 
             // label6
             // 
@@ -157,7 +157,7 @@
             nudArea.Maximum = new decimal(new int[] { 1000000000, 0, 0, 0 });
             nudArea.Name = "nudArea";
             nudArea.Size = new Size(152, 23);
-            nudArea.TabIndex = 12;
+            nudArea.TabIndex = 4;
             nudArea.TextAlign = HorizontalAlignment.Right;
             // 
             // label7
@@ -178,7 +178,7 @@
             btAgregar.Location = new Point(270, 438);
             btAgregar.Name = "btAgregar";
             btAgregar.Size = new Size(75, 66);
-            btAgregar.TabIndex = 14;
+            btAgregar.TabIndex = 5;
             btAgregar.UseVisualStyleBackColor = true;
             btAgregar.Click += btAgregar_Click;
             // 

@@ -173,7 +173,7 @@
             btGuardar.Location = new Point(271, 605);
             btGuardar.Name = "btGuardar";
             btGuardar.Size = new Size(75, 72);
-            btGuardar.TabIndex = 10;
+            btGuardar.TabIndex = 12;
             btGuardar.UseVisualStyleBackColor = true;
             btGuardar.Click += btGuardar_Click;
             // 
@@ -297,7 +297,7 @@
             txtCondiciones.Multiline = true;
             txtCondiciones.Name = "txtCondiciones";
             txtCondiciones.Size = new Size(156, 57);
-            txtCondiciones.TabIndex = 24;
+            txtCondiciones.TabIndex = 11;
             // 
             // RegistrarProveedor
             // 

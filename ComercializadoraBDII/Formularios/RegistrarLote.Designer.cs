@@ -77,7 +77,7 @@
             txtCodigoFinca.Location = new Point(238, 226);
             txtCodigoFinca.Name = "txtCodigoFinca";
             txtCodigoFinca.Size = new Size(186, 23);
-            txtCodigoFinca.TabIndex = 2;
+            txtCodigoFinca.TabIndex = 1;
             txtCodigoFinca.TextAlign = HorizontalAlignment.Center;
             txtCodigoFinca.Leave += txtCodigoFinca_Leave;
             // 
@@ -125,7 +125,7 @@
             txtCodigoProducto.Location = new Point(268, 292);
             txtCodigoProducto.Name = "txtCodigoProducto";
             txtCodigoProducto.Size = new Size(156, 23);
-            txtCodigoProducto.TabIndex = 8;
+            txtCodigoProducto.TabIndex = 2;
             txtCodigoProducto.TextAlign = HorizontalAlignment.Center;
             txtCodigoProducto.Leave += txtCodigoProducto_Leave;
             // 
@@ -163,7 +163,7 @@
             nudArea.Maximum = new decimal(new int[] { 1000000000, 0, 0, 0 });
             nudArea.Name = "nudArea";
             nudArea.Size = new Size(177, 23);
-            nudArea.TabIndex = 14;
+            nudArea.TabIndex = 3;
             nudArea.TextAlign = HorizontalAlignment.Right;
             // 
             // label7
@@ -193,7 +193,7 @@
             cbbTipoSuelo.Location = new Point(123, 392);
             cbbTipoSuelo.Name = "cbbTipoSuelo";
             cbbTipoSuelo.Size = new Size(175, 23);
-            cbbTipoSuelo.TabIndex = 17;
+            cbbTipoSuelo.TabIndex = 4;
             // 
             // label9
             // 
@@ -212,7 +212,7 @@
             cbbTipoRiego.Location = new Point(396, 392);
             cbbTipoRiego.Name = "cbbTipoRiego";
             cbbTipoRiego.Size = new Size(175, 23);
-            cbbTipoRiego.TabIndex = 19;
+            cbbTipoRiego.TabIndex = 5;
             // 
             // btGuardar
             // 
@@ -222,7 +222,7 @@
             btGuardar.Location = new Point(260, 434);
             btGuardar.Name = "btGuardar";
             btGuardar.Size = new Size(82, 78);
-            btGuardar.TabIndex = 23;
+            btGuardar.TabIndex = 6;
             btGuardar.UseVisualStyleBackColor = true;
             btGuardar.Click += button3_Click;
             // 

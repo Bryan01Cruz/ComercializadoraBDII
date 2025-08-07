@@ -53,6 +53,7 @@
             Precio = new DataGridViewTextBoxColumn();
             Cantidad = new DataGridViewTextBoxColumn();
             Unidad = new DataGridViewTextBoxColumn();
+            Descuento = new DataGridViewTextBoxColumn();
             Total = new DataGridViewTextBoxColumn();
             btGuardar = new Button();
             btAgregar = new Button();
@@ -72,6 +73,11 @@
             label17 = new Label();
             txtUnidad = new TextBox();
             cbbEstado = new ComboBox();
+            label18 = new Label();
+            label19 = new Label();
+            cbbDescuento = new ComboBox();
+            label20 = new Label();
+            txtDescuento = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudPrecio).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
@@ -113,7 +119,7 @@
             txtCodigoProveedor.Location = new Point(256, 235);
             txtCodigoProveedor.Name = "txtCodigoProveedor";
             txtCodigoProveedor.Size = new Size(195, 23);
-            txtCodigoProveedor.TabIndex = 3;
+            txtCodigoProveedor.TabIndex = 1;
             txtCodigoProveedor.TextAlign = HorizontalAlignment.Center;
             txtCodigoProveedor.Leave += txtCodigoProveedor_Leave;
             // 
@@ -121,7 +127,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(153, 268);
+            label3.Location = new Point(54, 268);
             label3.Name = "label3";
             label3.Size = new Size(75, 17);
             label3.TabIndex = 4;
@@ -130,7 +136,7 @@
             // txtProveedor
             // 
             txtProveedor.Enabled = false;
-            txtProveedor.Location = new Point(234, 267);
+            txtProveedor.Location = new Point(135, 267);
             txtProveedor.Name = "txtProveedor";
             txtProveedor.Size = new Size(217, 23);
             txtProveedor.TabIndex = 5;
@@ -150,7 +156,7 @@
             txtCodigoInsumo.Location = new Point(124, 335);
             txtCodigoInsumo.Name = "txtCodigoInsumo";
             txtCodigoInsumo.Size = new Size(105, 23);
-            txtCodigoInsumo.TabIndex = 8;
+            txtCodigoInsumo.TabIndex = 4;
             txtCodigoInsumo.TextAlign = HorizontalAlignment.Center;
             txtCodigoInsumo.TextChanged += textBox3_TextChanged;
             txtCodigoInsumo.Leave += txtCodigoInsumo_Leave;
@@ -172,7 +178,7 @@
             dtpVencimiento.Location = new Point(434, 299);
             dtpVencimiento.Name = "dtpVencimiento";
             dtpVencimiento.Size = new Size(96, 23);
-            dtpVencimiento.TabIndex = 12;
+            dtpVencimiento.TabIndex = 3;
             // 
             // dtpCompra
             // 
@@ -181,7 +187,7 @@
             dtpCompra.Location = new Point(197, 299);
             dtpCompra.Name = "dtpCompra";
             dtpCompra.Size = new Size(101, 23);
-            dtpCompra.TabIndex = 13;
+            dtpCompra.TabIndex = 2;
             // 
             // label6
             // 
@@ -227,7 +233,7 @@
             nudPrecio.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nudPrecio.Name = "nudPrecio";
             nudPrecio.Size = new Size(178, 23);
-            nudPrecio.TabIndex = 18;
+            nudPrecio.TabIndex = 5;
             nudPrecio.TextAlign = HorizontalAlignment.Right;
             // 
             // label9
@@ -246,22 +252,25 @@
             nudCantidad.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             nudCantidad.Name = "nudCantidad";
             nudCantidad.Size = new Size(79, 23);
-            nudCantidad.TabIndex = 20;
+            nudCantidad.TabIndex = 6;
             nudCantidad.TextAlign = HorizontalAlignment.Right;
             // 
             // dgvInsumos
             // 
             dgvInsumos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvInsumos.Columns.AddRange(new DataGridViewColumn[] { Codigo, Insumo, Precio, Cantidad, Unidad, Total });
+            dgvInsumos.Columns.AddRange(new DataGridViewColumn[] { Codigo, Insumo, Precio, Cantidad, Unidad, Descuento, Total });
             dgvInsumos.Location = new Point(14, 404);
             dgvInsumos.Name = "dgvInsumos";
-            dgvInsumos.Size = new Size(578, 174);
+            dgvInsumos.ReadOnly = true;
+            dgvInsumos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvInsumos.Size = new Size(578, 151);
             dgvInsumos.TabIndex = 21;
             // 
             // Codigo
             // 
             Codigo.HeaderText = "Codigo";
             Codigo.Name = "Codigo";
+            Codigo.ReadOnly = true;
             Codigo.Width = 80;
             // 
             // Insumo
@@ -269,29 +278,40 @@
             Insumo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Insumo.HeaderText = "Insumo";
             Insumo.Name = "Insumo";
+            Insumo.ReadOnly = true;
             // 
             // Precio
             // 
             Precio.HeaderText = "Precio";
             Precio.Name = "Precio";
+            Precio.ReadOnly = true;
             Precio.Width = 55;
             // 
             // Cantidad
             // 
             Cantidad.HeaderText = "Cantidad";
             Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
             Cantidad.Width = 60;
             // 
             // Unidad
             // 
             Unidad.HeaderText = "Unidad";
             Unidad.Name = "Unidad";
+            Unidad.ReadOnly = true;
             Unidad.Width = 55;
+            // 
+            // Descuento
+            // 
+            Descuento.HeaderText = "Descuento";
+            Descuento.Name = "Descuento";
+            Descuento.ReadOnly = true;
             // 
             // Total
             // 
             Total.HeaderText = "Total";
             Total.Name = "Total";
+            Total.ReadOnly = true;
             Total.Width = 115;
             // 
             // btGuardar
@@ -301,7 +321,7 @@
             btGuardar.Location = new Point(14, 584);
             btGuardar.Name = "btGuardar";
             btGuardar.Size = new Size(83, 74);
-            btGuardar.TabIndex = 23;
+            btGuardar.TabIndex = 11;
             btGuardar.UseVisualStyleBackColor = true;
             btGuardar.Click += btGuardar_Click;
             // 
@@ -309,10 +329,10 @@
             // 
             btAgregar.BackgroundImage = (Image)resources.GetObject("btAgregar.BackgroundImage");
             btAgregar.BackgroundImageLayout = ImageLayout.Stretch;
-            btAgregar.Location = new Point(163, 584);
+            btAgregar.Location = new Point(153, 584);
             btAgregar.Name = "btAgregar";
             btAgregar.Size = new Size(75, 74);
-            btAgregar.TabIndex = 24;
+            btAgregar.TabIndex = 8;
             btAgregar.UseVisualStyleBackColor = true;
             btAgregar.Click += btAgregar_Click;
             // 
@@ -320,10 +340,10 @@
             // 
             btEliminar.BackgroundImage = (Image)resources.GetObject("btEliminar.BackgroundImage");
             btEliminar.BackgroundImageLayout = ImageLayout.Stretch;
-            btEliminar.Location = new Point(244, 584);
+            btEliminar.Location = new Point(234, 584);
             btEliminar.Name = "btEliminar";
             btEliminar.Size = new Size(75, 74);
-            btEliminar.TabIndex = 25;
+            btEliminar.TabIndex = 9;
             btEliminar.UseVisualStyleBackColor = true;
             btEliminar.Click += btEliminar_Click;
             // 
@@ -352,18 +372,17 @@
             // 
             btActualizar.BackgroundImage = (Image)resources.GetObject("btActualizar.BackgroundImage");
             btActualizar.BackgroundImageLayout = ImageLayout.Stretch;
-            btActualizar.Enabled = false;
-            btActualizar.Location = new Point(325, 584);
+            btActualizar.Location = new Point(315, 584);
             btActualizar.Name = "btActualizar";
             btActualizar.Size = new Size(75, 74);
-            btActualizar.TabIndex = 28;
+            btActualizar.TabIndex = 10;
             btActualizar.UseVisualStyleBackColor = true;
             btActualizar.Click += btActualizar_Click;
             // 
             // txtSubtotal
             // 
             txtSubtotal.Enabled = false;
-            txtSubtotal.Location = new Point(478, 586);
+            txtSubtotal.Location = new Point(478, 564);
             txtSubtotal.Name = "txtSubtotal";
             txtSubtotal.Size = new Size(115, 23);
             txtSubtotal.TabIndex = 29;
@@ -371,7 +390,7 @@
             // txtImpuesto
             // 
             txtImpuesto.Enabled = false;
-            txtImpuesto.Location = new Point(478, 615);
+            txtImpuesto.Location = new Point(478, 593);
             txtImpuesto.Name = "txtImpuesto";
             txtImpuesto.Size = new Size(115, 23);
             txtImpuesto.TabIndex = 30;
@@ -379,7 +398,7 @@
             // txtTotal
             // 
             txtTotal.Enabled = false;
-            txtTotal.Location = new Point(478, 644);
+            txtTotal.Location = new Point(478, 650);
             txtTotal.Name = "txtTotal";
             txtTotal.Size = new Size(115, 23);
             txtTotal.TabIndex = 31;
@@ -388,7 +407,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            label11.Location = new Point(416, 589);
+            label11.Location = new Point(416, 567);
             label11.Name = "label11";
             label11.Size = new Size(62, 17);
             label11.TabIndex = 32;
@@ -398,7 +417,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            label12.Location = new Point(411, 618);
+            label12.Location = new Point(411, 596);
             label12.Name = "label12";
             label12.Size = new Size(65, 17);
             label12.TabIndex = 33;
@@ -408,7 +427,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            label13.Location = new Point(434, 647);
+            label13.Location = new Point(434, 653);
             label13.Name = "label13";
             label13.Size = new Size(40, 17);
             label13.TabIndex = 34;
@@ -428,7 +447,7 @@
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label15.Location = new Point(176, 657);
+            label15.Location = new Point(166, 657);
             label15.Name = "label15";
             label15.Size = new Size(49, 15);
             label15.TabIndex = 36;
@@ -438,7 +457,7 @@
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label16.Location = new Point(334, 657);
+            label16.Location = new Point(324, 657);
             label16.Name = "label16";
             label16.Size = new Size(60, 15);
             label16.TabIndex = 37;
@@ -448,7 +467,7 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label17.Location = new Point(258, 657);
+            label17.Location = new Point(248, 657);
             label17.Name = "label17";
             label17.Size = new Size(50, 15);
             label17.TabIndex = 38;
@@ -457,7 +476,7 @@
             // txtUnidad
             // 
             txtUnidad.Enabled = false;
-            txtUnidad.Location = new Point(408, 373);
+            txtUnidad.Location = new Point(411, 268);
             txtUnidad.Name = "txtUnidad";
             txtUnidad.Size = new Size(180, 23);
             txtUnidad.TabIndex = 39;
@@ -465,18 +484,72 @@
             // cbbEstado
             // 
             cbbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbEstado.Enabled = false;
             cbbEstado.FormattingEnabled = true;
             cbbEstado.Items.AddRange(new object[] { "Pendiente", "Entregado" });
-            cbbEstado.Location = new Point(409, 373);
+            cbbEstado.Location = new Point(412, 268);
             cbbEstado.Name = "cbbEstado";
             cbbEstado.Size = new Size(179, 23);
             cbbEstado.TabIndex = 40;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label18.Location = new Point(358, 268);
+            label18.Name = "label18";
+            label18.Size = new Size(52, 17);
+            label18.TabIndex = 41;
+            label18.Text = "Estado:";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label19.Location = new Point(408, 373);
+            label19.Name = "label19";
+            label19.Size = new Size(75, 17);
+            label19.TabIndex = 42;
+            label19.Text = "Descuento:";
+            // 
+            // cbbDescuento
+            // 
+            cbbDescuento.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbDescuento.FormattingEnabled = true;
+            cbbDescuento.Items.AddRange(new object[] { "0%", "5%" });
+            cbbDescuento.Location = new Point(489, 372);
+            cbbDescuento.Name = "cbbDescuento";
+            cbbDescuento.Size = new Size(103, 23);
+            cbbDescuento.TabIndex = 7;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label20.Location = new Point(399, 622);
+            label20.Name = "label20";
+            label20.Size = new Size(75, 17);
+            label20.TabIndex = 44;
+            label20.Text = "Descuento:";
+            // 
+            // txtDescuento
+            // 
+            txtDescuento.Enabled = false;
+            txtDescuento.Location = new Point(478, 621);
+            txtDescuento.Name = "txtDescuento";
+            txtDescuento.Size = new Size(113, 23);
+            txtDescuento.TabIndex = 45;
             // 
             // CompraInsumos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(605, 682);
+            Controls.Add(txtDescuento);
+            Controls.Add(label20);
+            Controls.Add(cbbDescuento);
+            Controls.Add(label19);
+            Controls.Add(label18);
             Controls.Add(cbbEstado);
             Controls.Add(txtUnidad);
             Controls.Add(label17);
@@ -564,13 +637,19 @@
         private Label label15;
         private Label label16;
         private Label label17;
+        private TextBox txtUnidad;
+        private ComboBox cbbEstado;
+        private Label label18;
+        private Label label19;
+        private ComboBox cbbDescuento;
         private DataGridViewTextBoxColumn Codigo;
         private DataGridViewTextBoxColumn Insumo;
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn Cantidad;
         private DataGridViewTextBoxColumn Unidad;
+        private DataGridViewTextBoxColumn Descuento;
         private DataGridViewTextBoxColumn Total;
-        private TextBox txtUnidad;
-        private ComboBox cbbEstado;
+        private Label label20;
+        private TextBox txtDescuento;
     }
 }

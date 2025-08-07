@@ -207,7 +207,7 @@
             btAgregar.BackgroundImage = (Image)resources.GetObject("btAgregar.BackgroundImage");
             btAgregar.BackgroundImageLayout = ImageLayout.Stretch;
             btAgregar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btAgregar.Location = new Point(267, 508);
+            btAgregar.Location = new Point(274, 508);
             btAgregar.Name = "btAgregar";
             btAgregar.Size = new Size(78, 73);
             btAgregar.TabIndex = 9;
@@ -236,7 +236,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(283, 582);
+            label10.Location = new Point(290, 582);
             label10.Name = "label10";
             label10.Size = new Size(49, 15);
             label10.TabIndex = 22;

@@ -132,7 +132,7 @@
             txtProductor.Location = new Point(229, 264);
             txtProductor.Name = "txtProductor";
             txtProductor.Size = new Size(216, 23);
-            txtProductor.TabIndex = 3;
+            txtProductor.TabIndex = 40;
             // 
             // label4
             // 
@@ -149,7 +149,7 @@
             txtCodigoBodega.Location = new Point(88, 320);
             txtCodigoBodega.Name = "txtCodigoBodega";
             txtCodigoBodega.Size = new Size(54, 23);
-            txtCodigoBodega.TabIndex = 5;
+            txtCodigoBodega.TabIndex = 4;
             txtCodigoBodega.Leave += txtCodigoBodega_Leave;
             // 
             // label5
@@ -178,7 +178,7 @@
             txtCodigo.Location = new Point(148, 350);
             txtCodigo.Name = "txtCodigo";
             txtCodigo.Size = new Size(77, 23);
-            txtCodigo.TabIndex = 9;
+            txtCodigo.TabIndex = 37;
             txtCodigo.Leave += txtCodigo_Leave;
             // 
             // label7
@@ -259,7 +259,7 @@
             nudCantidad.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             nudCantidad.Name = "nudCantidad";
             nudCantidad.Size = new Size(94, 23);
-            nudCantidad.TabIndex = 10;
+            nudCantidad.TabIndex = 7;
             nudCantidad.TextAlign = HorizontalAlignment.Right;
             // 
             // nudPrecio
@@ -268,7 +268,7 @@
             nudPrecio.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             nudPrecio.Name = "nudPrecio";
             nudPrecio.Size = new Size(143, 23);
-            nudPrecio.TabIndex = 9;
+            nudPrecio.TabIndex = 6;
             nudPrecio.TextAlign = HorizontalAlignment.Right;
             // 
             // label11
@@ -309,7 +309,7 @@
             btAgregar.Location = new Point(137, 585);
             btAgregar.Name = "btAgregar";
             btAgregar.Size = new Size(75, 74);
-            btAgregar.TabIndex = 7;
+            btAgregar.TabIndex = 8;
             btAgregar.UseVisualStyleBackColor = true;
             btAgregar.Click += button2_Click;
             // 
@@ -321,7 +321,7 @@
             btEliminar.Location = new Point(218, 585);
             btEliminar.Name = "btEliminar";
             btEliminar.Size = new Size(75, 74);
-            btEliminar.TabIndex = 8;
+            btEliminar.TabIndex = 9;
             btEliminar.UseVisualStyleBackColor = true;
             btEliminar.Click += button3_Click;
             // 
@@ -333,7 +333,7 @@
             btActualizar.Location = new Point(299, 585);
             btActualizar.Name = "btActualizar";
             btActualizar.Size = new Size(75, 74);
-            btActualizar.TabIndex = 9;
+            btActualizar.TabIndex = 10;
             btActualizar.UseVisualStyleBackColor = true;
             btActualizar.Click += btActualizar_Click;
             // 
@@ -346,7 +346,7 @@
             btGuardar.Location = new Point(15, 585);
             btGuardar.Name = "btGuardar";
             btGuardar.Size = new Size(84, 74);
-            btGuardar.TabIndex = 10;
+            btGuardar.TabIndex = 11;
             btGuardar.UseVisualStyleBackColor = false;
             btGuardar.Click += btGuardar_Click;
             // 
@@ -396,7 +396,7 @@
             txtBodega.Location = new Point(148, 320);
             txtBodega.Name = "txtBodega";
             txtBodega.Size = new Size(161, 23);
-            txtBodega.TabIndex = 6;
+            txtBodega.TabIndex = 39;
             // 
             // label17
             // 
@@ -415,7 +415,7 @@
             nudDisponible.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
             nudDisponible.Name = "nudDisponible";
             nudDisponible.Size = new Size(113, 23);
-            nudDisponible.TabIndex = 7;
+            nudDisponible.TabIndex = 38;
             nudDisponible.TextAlign = HorizontalAlignment.Right;
             // 
             // dtpFechaEntrega
@@ -425,7 +425,7 @@
             dtpFechaEntrega.Location = new Point(284, 292);
             dtpFechaEntrega.Name = "dtpFechaEntrega";
             dtpFechaEntrega.Size = new Size(125, 23);
-            dtpFechaEntrega.TabIndex = 4;
+            dtpFechaEntrega.TabIndex = 3;
             // 
             // txtUnidad
             // 
@@ -433,7 +433,7 @@
             txtUnidad.Location = new Point(404, 381);
             txtUnidad.Name = "txtUnidad";
             txtUnidad.Size = new Size(170, 23);
-            txtUnidad.TabIndex = 11;
+            txtUnidad.TabIndex = 36;
             txtUnidad.Text = "Quintales";
             // 
             // label10
@@ -448,6 +448,7 @@
             // 
             // cbbFincas
             // 
+            cbbFincas.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbFincas.FormattingEnabled = true;
             cbbFincas.Location = new Point(376, 233);
             cbbFincas.Name = "cbbFincas";
@@ -457,11 +458,12 @@
             // 
             // cbbProducto
             // 
+            cbbProducto.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbProducto.FormattingEnabled = true;
             cbbProducto.Location = new Point(304, 350);
             cbbProducto.Name = "cbbProducto";
             cbbProducto.Size = new Size(270, 23);
-            cbbProducto.TabIndex = 8;
+            cbbProducto.TabIndex = 5;
             cbbProducto.SelectedIndexChanged += cbbProducto_SelectedIndexChanged;
             // 
             // RegistrarCosecha

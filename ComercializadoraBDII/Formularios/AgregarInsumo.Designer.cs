@@ -79,7 +79,7 @@
             txtNombre.Location = new Point(174, 236);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(222, 23);
-            txtNombre.TabIndex = 5;
+            txtNombre.TabIndex = 1;
             // 
             // label4
             // 
@@ -98,7 +98,7 @@
             cbbTipoInsumo.Location = new Point(221, 268);
             cbbTipoInsumo.Name = "cbbTipoInsumo";
             cbbTipoInsumo.Size = new Size(175, 23);
-            cbbTipoInsumo.TabIndex = 8;
+            cbbTipoInsumo.TabIndex = 2;
             // 
             // label5
             // 
@@ -118,7 +118,7 @@
             cbbUnidad.Location = new Point(235, 299);
             cbbUnidad.Name = "cbbUnidad";
             cbbUnidad.Size = new Size(161, 23);
-            cbbUnidad.TabIndex = 10;
+            cbbUnidad.TabIndex = 3;
             // 
             // label6
             // 
@@ -136,7 +136,7 @@
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(206, 77);
-            txtDescripcion.TabIndex = 12;
+            txtDescripcion.TabIndex = 4;
             // 
             // btGuardar
             // 
@@ -145,7 +145,7 @@
             btGuardar.Location = new Point(221, 430);
             btGuardar.Name = "btGuardar";
             btGuardar.Size = new Size(75, 69);
-            btGuardar.TabIndex = 13;
+            btGuardar.TabIndex = 5;
             btGuardar.UseVisualStyleBackColor = true;
             btGuardar.Click += btGuardar_Click;
             // 

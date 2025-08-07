@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsuarioAdministrador));
             pictureBox1 = new PictureBox();
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtUsuario = new TextBox();
             label2 = new Label();
-            maskedTextBox1 = new MaskedTextBox();
+            txtContrasena = new MaskedTextBox();
             label3 = new Label();
             button1 = new Button();
             label4 = new Label();
@@ -61,12 +61,12 @@
             label1.Text = "Usuario:";
             label1.Click += label1_Click;
             // 
-            // textBox1
+            // txtUsuario
             // 
-            textBox1.Location = new Point(44, 196);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(243, 23);
-            textBox1.TabIndex = 2;
+            txtUsuario.Location = new Point(44, 196);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(243, 23);
+            txtUsuario.TabIndex = 1;
             // 
             // label2
             // 
@@ -78,13 +78,13 @@
             label2.TabIndex = 3;
             label2.Text = "Contraseña:";
             // 
-            // maskedTextBox1
+            // txtContrasena
             // 
-            maskedTextBox1.Location = new Point(44, 247);
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.PasswordChar = '*';
-            maskedTextBox1.Size = new Size(243, 23);
-            maskedTextBox1.TabIndex = 4;
+            txtContrasena.Location = new Point(44, 247);
+            txtContrasena.Name = "txtContrasena";
+            txtContrasena.PasswordChar = '*';
+            txtContrasena.Size = new Size(243, 23);
+            txtContrasena.TabIndex = 2;
             // 
             // label3
             // 
@@ -104,7 +104,7 @@
             button1.Location = new Point(127, 276);
             button1.Name = "button1";
             button1.Size = new Size(75, 70);
-            button1.TabIndex = 6;
+            button1.TabIndex = 3;
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -127,9 +127,9 @@
             Controls.Add(label4);
             Controls.Add(button1);
             Controls.Add(label3);
-            Controls.Add(maskedTextBox1);
+            Controls.Add(txtContrasena);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(txtUsuario);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -145,9 +145,9 @@
 
         private PictureBox pictureBox1;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtUsuario;
         private Label label2;
-        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox txtContrasena;
         private Label label3;
         private Button button1;
         private Label label4;
