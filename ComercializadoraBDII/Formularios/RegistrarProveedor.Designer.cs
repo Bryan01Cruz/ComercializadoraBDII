@@ -123,10 +123,14 @@
             // txtRtn
             // 
             txtRtn.Location = new Point(194, 364);
+            txtRtn.MaxLength = 14;
             txtRtn.Name = "txtRtn";
             txtRtn.Size = new Size(122, 23);
             txtRtn.TabIndex = 4;
             txtRtn.TextAlign = HorizontalAlignment.Center;
+            txtRtn.TextChanged += txtRtn_TextChanged;
+            txtRtn.KeyPress += txtRtn_KeyPress;
+            txtRtn.Leave += txtRtn_Leave;
             // 
             // label4
             // 
@@ -238,6 +242,7 @@
             // txtCuentaBancaria
             // 
             txtCuentaBancaria.Location = new Point(286, 453);
+            txtCuentaBancaria.MaxLength = 15;
             txtCuentaBancaria.Name = "txtCuentaBancaria";
             txtCuentaBancaria.Size = new Size(164, 23);
             txtCuentaBancaria.TabIndex = 8;

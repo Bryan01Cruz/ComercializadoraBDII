@@ -51,16 +51,28 @@ namespace ComercializadoraBDII.Formularios
             dgvInsumos.Rows[nuevaFila].Cells["Insumo"].Value = txtInsumo.Text;
             dgvInsumos.Rows[nuevaFila].Cells["Cantidad"].Value = nudCantidad.Value;
             dgvInsumos.Rows[nuevaFila].Cells["Unidad"].Value = txtUnidad.Text;
+
             if (cbbDescuento.Text == "0%")
             {
-                dgvInsumos.Rows[nuevaFila].Cells["Descuento"].Value = nudPrecio.Value * 0;
+                dgvInsumos.Rows[nuevaFila].Cells["Descuento"].Value = 0;
             }
-            else
+            if (cbbDescuento.Text == "5%")
             {
-                dgvInsumos.Rows[nuevaFila].Cells["Descuento"].Value = nudPrecio.Value * Convert.ToDecimal(0.05);
+                dgvInsumos.Rows[nuevaFila].Cells["Descuento"].Value = 0.05;
             }
-                dgvInsumos.Rows[nuevaFila].Cells["Precio"].Value = nudPrecio.Value;
-            dgvInsumos.Rows[nuevaFila].Cells["Total"].Value = nudPrecio.Value * nudCantidad.Value;
+            dgvInsumos.Rows[nuevaFila].Cells["Precio"].Value = nudPrecio.Value;
+            dgvInsumos.Rows[nuevaFila].Cells["Total"].Value = nudPrecio.Value * nudCantidad.Value * (1 - Convert.ToDecimal(dgvInsumos.Rows[nuevaFila].Cells["Descuento"].Value));
+
+            //if (cbbDescuento.Text == "0%")
+            //{
+            //    dgvInsumos.Rows[nuevaFila].Cells["Descuento"].Value = nudPrecio.Value * 0;
+            //}
+            //else
+            //{
+            //    dgvInsumos.Rows[nuevaFila].Cells["Descuento"].Value = nudPrecio.Value * Convert.ToDecimal(0.05);
+            //}
+            //    dgvInsumos.Rows[nuevaFila].Cells["Precio"].Value = nudPrecio.Value;
+            //dgvInsumos.Rows[nuevaFila].Cells["Total"].Value = nudPrecio.Value * nudCantidad.Value;
 
             ConectorSQL.SumarTotal(dgvInsumos, "Total", txtSubtotal);
 
@@ -116,7 +128,7 @@ namespace ComercializadoraBDII.Formularios
 
             if (confirmar == DialogResult.Yes)
             {
-                dgvInsumos.Rows.Remove(fila);
+                
                 ConectorSQL.SumarTotal(dgvInsumos, "Total", txtSubtotal);
                 txtImpuesto.Text = (Convert.ToDouble(txtSubtotal.Text) * 0.15).ToString();
                 ConectorSQL.SumarTotal(dgvInsumos, "Descuento", txtDescuento);
@@ -126,6 +138,7 @@ namespace ComercializadoraBDII.Formularios
                 txtUnidad.Text = fila.Cells["Unidad"].Value?.ToString();
                 nudCantidad.Value = Convert.ToDecimal(fila.Cells["Cantidad"].Value);
                 nudPrecio.Value = Convert.ToDecimal(fila.Cells["Precio"].Value);
+                dgvInsumos.Rows.Remove(fila);
             }
         }
 

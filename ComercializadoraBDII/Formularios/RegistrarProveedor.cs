@@ -31,7 +31,7 @@ namespace ComercializadoraBDII.Formularios
         {
             if (!txtCorreo.Text.Contains("@") || string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtContacto.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text) ||
                 string.IsNullOrWhiteSpace(txtDireccion.Text) || string.IsNullOrWhiteSpace(txtCorreo.Text) || string.IsNullOrWhiteSpace(txtRtn.Text) || cbbTipoProveedor.Text == "" ||
-                string.IsNullOrWhiteSpace(txtCuentaBancaria.Text) || cbbBanco.Text=="" || cbbTipoCuenta.Text=="")
+                string.IsNullOrWhiteSpace(txtCuentaBancaria.Text) || cbbBanco.Text == "" || cbbTipoCuenta.Text == "")
             {
                 MessageBox.Show("Ingrese todos los datos y verifique si el correo es válido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -86,6 +86,24 @@ namespace ComercializadoraBDII.Formularios
                 {
                     MessageBox.Show("Error general: " + ex.Message, "Excepción", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void txtRtn_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRtn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtRtn_Leave(object sender, EventArgs e)
+        {
+            if(txtRtn.TextLength < 14 || txtRtn.TextLength>14)
+            {
+                MessageBox.Show("El RTN debe tener 14 digitos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

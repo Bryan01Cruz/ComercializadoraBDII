@@ -184,17 +184,17 @@ namespace ComercializadoraBDII.Formularios
 
             if (confirmar == DialogResult.Yes)
             {
-                dgvEntregas.Rows.Remove(fila);
+                
                 ConectorSQL.SumarTotal(dgvEntregas, "Total", txtSubtotal);
                 txtIGO.Text = (Convert.ToDouble(txtSubtotal.Text) * 0.05).ToString();
                 ConectorSQL.SumarTotal(dgvEntregas, "Descuento", txtDescuento);
                 txtTotal.Text = (Convert.ToDouble(txtSubtotal.Text) - Convert.ToDouble(txtIGO.Text)).ToString();
-
                 txtCodigoInsumo.Text = fila.Cells["Codigo"].Value?.ToString();
                 txtInsumo.Text = fila.Cells["Insumo"].Value?.ToString();
                 txtUnidad.Text = fila.Cells["Unidad"].Value?.ToString();
                 nudCantidad.Value = Convert.ToDecimal(fila.Cells["Cantidad"].Value);
                 nudPrecio.Value = Convert.ToDecimal(fila.Cells["Precio"].Value);
+                dgvEntregas.Rows.Remove(fila);
             }
         }
 

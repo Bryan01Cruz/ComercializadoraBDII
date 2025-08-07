@@ -82,17 +82,17 @@ namespace ComercializadoraBDII.Formularios
 
             if (confirmar == DialogResult.Yes)
             {
-                dvgProductos.Rows.Remove(fila);
+                
                 ConectorSQL.SumarTotal(dvgProductos, "Total", txtSubtotal);
                 txtDescuento.Text = (Convert.ToDouble(txtSubtotal.Text) * 0.15).ToString();
                 ConectorSQL.SumarTotal(dvgProductos, "Descuento", txtDescuento);
                 txtTotal.Text = (Convert.ToDouble(txtSubtotal.Text) + Convert.ToDouble(txtDescuento.Text) - Convert.ToDouble(txtDescuento.Text)).ToString();
-          
                 txtCodigo.Text = fila.Cells["Codigo"].Value?.ToString();
                 txtProducto.Text = fila.Cells["Producto"].Value?.ToString();
                 cbbUnidad.Text = fila.Cells["Unidad"].Value?.ToString();
                 nudCantidad.Value = Convert.ToDecimal(fila.Cells["Cantidad"].Value);
                 nudPrecio.Value = Convert.ToDecimal(fila.Cells["Precio"].Value);
+                dvgProductos.Rows.Remove(fila);
             }
         }
 
@@ -121,14 +121,13 @@ namespace ComercializadoraBDII.Formularios
 
         private void btAgregar_Click(object sender, EventArgs e)
         {
-            // Validación básica
+
             if (string.IsNullOrWhiteSpace(txtCodigo.Text) || string.IsNullOrWhiteSpace(txtProducto.Text) || nudCantidad.Value == 0 || nudPrecio.Value == 0 || cbbUnidad.Text=="")
             {
                 MessageBox.Show("Debe ingresar todos los campos para insertar un registro", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Agregar fila al DataGridView
             int nuevaFila = dvgProductos.Rows.Add();
             dvgProductos.Rows[nuevaFila].Cells["Codigo"].Value = txtCodigo.Text;
             dvgProductos.Rows[nuevaFila].Cells["Producto"].Value = txtProducto.Text;
@@ -136,18 +135,27 @@ namespace ComercializadoraBDII.Formularios
             dvgProductos.Rows[nuevaFila].Cells["Unidad"].Value = cbbUnidad.Text;
             if (cbbDescuento.Text == "0%")
             {
-                dvgProductos.Rows[nuevaFila].Cells["Descuento"].Value = nudPrecio.Value * 0;
+                dvgProductos.Rows[nuevaFila].Cells["Descuento"].Value = 0;
             }
-            else
+            if (dvgProductos.Text == "5%")
             {
-                dvgProductos.Rows[nuevaFila].Cells["Descuento"].Value = nudPrecio.Value * Convert.ToDecimal(0.05);
+                dvgProductos.Rows[nuevaFila].Cells["Descuento"].Value = 0.05;
             }
             dvgProductos.Rows[nuevaFila].Cells["Precio"].Value = nudPrecio.Value;
-            dvgProductos.Rows[nuevaFila].Cells["Total"].Value = nudPrecio.Value * nudCantidad.Value;
+            dvgProductos.Rows[nuevaFila].Cells["Total"].Value = nudPrecio.Value * nudCantidad.Value * (1 - Convert.ToDecimal(dvgProductos.Rows[nuevaFila].Cells["Descuento"].Value));
+            //if (cbbDescuento.Text == "0%")
+            //{
+            //    dvgProductos.Rows[nuevaFila].Cells["Descuento"].Value = nudPrecio.Value * 0;
+            //}
+            //else
+            //{
+            //    dvgProductos.Rows[nuevaFila].Cells["Descuento"].Value = nudPrecio.Value * Convert.ToDecimal(0.05);
+            //}
+            //dvgProductos.Rows[nuevaFila].Cells["Precio"].Value = nudPrecio.Value;
+            //dvgProductos.Rows[nuevaFila].Cells["Total"].Value = nudPrecio.Value * nudCantidad.Value;
 
             ConectorSQL.SumarTotal(dvgProductos, "Total", txtSubtotal);
 
-            // Limpieza
             txtCodigo.Clear();
             txtCodigo.Focus();
             txtProducto.Clear();

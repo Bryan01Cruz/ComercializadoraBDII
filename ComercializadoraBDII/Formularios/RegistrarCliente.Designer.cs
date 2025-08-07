@@ -110,15 +110,15 @@
             label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(112, 277);
             label4.Name = "label4";
-            label4.Size = new Size(69, 17);
+            label4.Size = new Size(82, 17);
             label4.TabIndex = 6;
-            label4.Text = "Identidad:";
+            label4.Text = "Documento:";
             // 
             // txtIdentidad
             // 
-            txtIdentidad.Location = new Point(183, 275);
+            txtIdentidad.Location = new Point(200, 276);
             txtIdentidad.Name = "txtIdentidad";
-            txtIdentidad.Size = new Size(220, 23);
+            txtIdentidad.Size = new Size(203, 23);
             txtIdentidad.TabIndex = 3;
             txtIdentidad.TextAlign = HorizontalAlignment.Center;
             // 

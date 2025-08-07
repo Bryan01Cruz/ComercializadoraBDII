@@ -166,6 +166,7 @@
             // txtCuentaBancaria
             // 
             txtCuentaBancaria.Location = new Point(254, 412);
+            txtCuentaBancaria.MaxLength = 15;
             txtCuentaBancaria.Name = "txtCuentaBancaria";
             txtCuentaBancaria.Size = new Size(203, 23);
             txtCuentaBancaria.TabIndex = 6;

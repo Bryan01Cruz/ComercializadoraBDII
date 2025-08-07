@@ -58,6 +58,7 @@
             lotesToolStripMenuItem = new ToolStripMenuItem();
             saldoPendientePorProductorToolStripMenuItem = new ToolStripMenuItem();
             utilidadPorCosechasToolStripMenuItem = new ToolStripMenuItem();
+            saldoPendientePorProveedorToolStripMenuItem = new ToolStripMenuItem();
             facturaciónToolStripMenuItem = new ToolStripMenuItem();
             facturarProductosToolStripMenuItem = new ToolStripMenuItem();
             agregarClienteToolStripMenuItem = new ToolStripMenuItem();
@@ -65,7 +66,6 @@
             cerrarSesiónToolStripMenuItem = new ToolStripMenuItem();
             salirDelSistemaToolStripMenuItem = new ToolStripMenuItem();
             pictureBox1 = new PictureBox();
-            saldoPendientePorProveedorToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -112,14 +112,14 @@
             // asignarCultivoALoteToolStripMenuItem
             // 
             asignarCultivoALoteToolStripMenuItem.Name = "asignarCultivoALoteToolStripMenuItem";
-            asignarCultivoALoteToolStripMenuItem.Size = new Size(204, 22);
-            asignarCultivoALoteToolStripMenuItem.Text = "Asignar cultivo a lote";
+            asignarCultivoALoteToolStripMenuItem.Size = new Size(182, 22);
+            asignarCultivoALoteToolStripMenuItem.Text = "Registrar Lote";
             asignarCultivoALoteToolStripMenuItem.Click += asignarCultivoALoteToolStripMenuItem_Click;
             // 
             // registrarCosechaToolStripMenuItem
             // 
             registrarCosechaToolStripMenuItem.Name = "registrarCosechaToolStripMenuItem";
-            registrarCosechaToolStripMenuItem.Size = new Size(204, 22);
+            registrarCosechaToolStripMenuItem.Size = new Size(182, 22);
             registrarCosechaToolStripMenuItem.Text = "Registrar cosecha";
             registrarCosechaToolStripMenuItem.Click += registrarCosechaToolStripMenuItem_Click;
             // 
@@ -277,6 +277,13 @@
             utilidadPorCosechasToolStripMenuItem.Text = "Utilidad por Cosechas";
             utilidadPorCosechasToolStripMenuItem.Click += utilidadPorCosechasToolStripMenuItem_Click;
             // 
+            // saldoPendientePorProveedorToolStripMenuItem
+            // 
+            saldoPendientePorProveedorToolStripMenuItem.Name = "saldoPendientePorProveedorToolStripMenuItem";
+            saldoPendientePorProveedorToolStripMenuItem.Size = new Size(290, 22);
+            saldoPendientePorProveedorToolStripMenuItem.Text = "Saldo Pendiente por proveedor";
+            saldoPendientePorProveedorToolStripMenuItem.Click += saldoPendientePorProveedorToolStripMenuItem_Click;
+            // 
             // facturaciónToolStripMenuItem
             // 
             facturaciónToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { facturarProductosToolStripMenuItem, agregarClienteToolStripMenuItem });
@@ -308,14 +315,14 @@
             // cerrarSesiónToolStripMenuItem
             // 
             cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            cerrarSesiónToolStripMenuItem.Size = new Size(180, 22);
+            cerrarSesiónToolStripMenuItem.Size = new Size(173, 22);
             cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
             cerrarSesiónToolStripMenuItem.Click += cerrarSesiónToolStripMenuItem_Click;
             // 
             // salirDelSistemaToolStripMenuItem
             // 
             salirDelSistemaToolStripMenuItem.Name = "salirDelSistemaToolStripMenuItem";
-            salirDelSistemaToolStripMenuItem.Size = new Size(180, 22);
+            salirDelSistemaToolStripMenuItem.Size = new Size(173, 22);
             salirDelSistemaToolStripMenuItem.Text = "Salir del sistema";
             salirDelSistemaToolStripMenuItem.Click += salirDelSistemaToolStripMenuItem_Click;
             // 
@@ -329,13 +336,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
-            // 
-            // saldoPendientePorProveedorToolStripMenuItem
-            // 
-            saldoPendientePorProveedorToolStripMenuItem.Name = "saldoPendientePorProveedorToolStripMenuItem";
-            saldoPendientePorProveedorToolStripMenuItem.Size = new Size(290, 22);
-            saldoPendientePorProveedorToolStripMenuItem.Text = "Saldo Pendiente por proveedor";
-            saldoPendientePorProveedorToolStripMenuItem.Click += saldoPendientePorProveedorToolStripMenuItem_Click;
             // 
             // Form1
             // 

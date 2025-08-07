@@ -227,9 +227,9 @@
             // 
             dgvEntregas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEntregas.Columns.AddRange(new DataGridViewColumn[] { Codigo, Insumo, Cantidad, Unidad, Precio, Descuento, Total });
-            dgvEntregas.Enabled = false;
             dgvEntregas.Location = new Point(12, 406);
             dgvEntregas.Name = "dgvEntregas";
+            dgvEntregas.ReadOnly = true;
             dgvEntregas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvEntregas.Size = new Size(578, 151);
             dgvEntregas.TabIndex = 19;
@@ -239,6 +239,7 @@
             // 
             Codigo.HeaderText = "Código";
             Codigo.Name = "Codigo";
+            Codigo.ReadOnly = true;
             Codigo.Width = 60;
             // 
             // Insumo
@@ -246,35 +247,41 @@
             Insumo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Insumo.HeaderText = "Insumo";
             Insumo.Name = "Insumo";
+            Insumo.ReadOnly = true;
             // 
             // Cantidad
             // 
             Cantidad.HeaderText = "Cantidad";
             Cantidad.Name = "Cantidad";
+            Cantidad.ReadOnly = true;
             Cantidad.Width = 60;
             // 
             // Unidad
             // 
             Unidad.HeaderText = "Unidad";
             Unidad.Name = "Unidad";
+            Unidad.ReadOnly = true;
             Unidad.Width = 60;
             // 
             // Precio
             // 
             Precio.HeaderText = "Precio";
             Precio.Name = "Precio";
+            Precio.ReadOnly = true;
             Precio.Width = 50;
             // 
             // Descuento
             // 
             Descuento.HeaderText = "Descuento";
             Descuento.Name = "Descuento";
+            Descuento.ReadOnly = true;
             Descuento.Width = 70;
             // 
             // Total
             // 
             Total.HeaderText = "Total";
             Total.Name = "Total";
+            Total.ReadOnly = true;
             Total.Width = 115;
             // 
             // btGuardar
@@ -445,6 +452,7 @@
             // 
             // cbbDescuento
             // 
+            cbbDescuento.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbDescuento.FormattingEnabled = true;
             cbbDescuento.Items.AddRange(new object[] { "0%", "5%" });
             cbbDescuento.Location = new Point(448, 370);

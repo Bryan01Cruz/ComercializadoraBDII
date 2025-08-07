@@ -259,6 +259,7 @@
             txtCodigo.Name = "txtCodigo";
             txtCodigo.Size = new Size(86, 23);
             txtCodigo.TabIndex = 5;
+            txtCodigo.TextAlign = HorizontalAlignment.Center;
             txtCodigo.Leave += txtCodigo_Leave;
             // 
             // label7
