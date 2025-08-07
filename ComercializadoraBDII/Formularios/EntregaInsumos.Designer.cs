@@ -233,6 +233,7 @@
             dgvEntregas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvEntregas.Size = new Size(578, 151);
             dgvEntregas.TabIndex = 19;
+            dgvEntregas.CellContentClick += dgvEntregas_CellContentClick;
             // 
             // Codigo
             // 

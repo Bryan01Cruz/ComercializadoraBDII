@@ -27,7 +27,7 @@ namespace ComercializadoraBDII.Formularios
             {
                 string sql = @"
                 SELECT * 
-                FROM vInventarioProductos 
+                FROM vw_InventarioProductos 
                 WHERE Codigo LIKE @filtro OR Producto LIKE @filtro";
 
                 var parametros = new[]
@@ -87,6 +87,11 @@ namespace ComercializadoraBDII.Formularios
             {
                 MessageBox.Show("Error inesperado: " + ex.Message, "Error general", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

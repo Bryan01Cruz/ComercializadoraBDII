@@ -49,6 +49,7 @@
             registrarAbonoAProductorToolStripMenuItem = new ToolStripMenuItem();
             proveedoresToolStripMenuItem = new ToolStripMenuItem();
             registrarProveedorToolStripMenuItem = new ToolStripMenuItem();
+            registrarPagoAProveedorToolStripMenuItem = new ToolStripMenuItem();
             administraciónToolStripMenuItem = new ToolStripMenuItem();
             parametrosDelSistemaToolStripMenuItem = new ToolStripMenuItem();
             consultasToolStripMenuItem = new ToolStripMenuItem();
@@ -64,7 +65,7 @@
             cerrarSesiónToolStripMenuItem = new ToolStripMenuItem();
             salirDelSistemaToolStripMenuItem = new ToolStripMenuItem();
             pictureBox1 = new PictureBox();
-            registrarPagoAProveedorToolStripMenuItem = new ToolStripMenuItem();
+            saldoPendientePorProveedorToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -213,6 +214,13 @@
             registrarProveedorToolStripMenuItem.Text = "Registrar Proveedor";
             registrarProveedorToolStripMenuItem.Click += registrarProveedorToolStripMenuItem_Click;
             // 
+            // registrarPagoAProveedorToolStripMenuItem
+            // 
+            registrarPagoAProveedorToolStripMenuItem.Name = "registrarPagoAProveedorToolStripMenuItem";
+            registrarPagoAProveedorToolStripMenuItem.Size = new Size(243, 22);
+            registrarPagoAProveedorToolStripMenuItem.Text = "Registrar Pago a Proveedor";
+            registrarPagoAProveedorToolStripMenuItem.Click += registrarPagoAProveedorToolStripMenuItem_Click;
+            // 
             // administraciónToolStripMenuItem
             // 
             administraciónToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { parametrosDelSistemaToolStripMenuItem });
@@ -229,7 +237,7 @@
             // 
             // consultasToolStripMenuItem
             // 
-            consultasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { productoresToolStripMenuItem, fincasToolStripMenuItem, lotesToolStripMenuItem, saldoPendientePorProductorToolStripMenuItem, utilidadPorCosechasToolStripMenuItem });
+            consultasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { productoresToolStripMenuItem, fincasToolStripMenuItem, lotesToolStripMenuItem, saldoPendientePorProductorToolStripMenuItem, utilidadPorCosechasToolStripMenuItem, saldoPendientePorProveedorToolStripMenuItem });
             consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             consultasToolStripMenuItem.Size = new Size(79, 21);
             consultasToolStripMenuItem.Text = "Consultas";
@@ -300,14 +308,14 @@
             // cerrarSesiónToolStripMenuItem
             // 
             cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            cerrarSesiónToolStripMenuItem.Size = new Size(173, 22);
+            cerrarSesiónToolStripMenuItem.Size = new Size(180, 22);
             cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
             cerrarSesiónToolStripMenuItem.Click += cerrarSesiónToolStripMenuItem_Click;
             // 
             // salirDelSistemaToolStripMenuItem
             // 
             salirDelSistemaToolStripMenuItem.Name = "salirDelSistemaToolStripMenuItem";
-            salirDelSistemaToolStripMenuItem.Size = new Size(173, 22);
+            salirDelSistemaToolStripMenuItem.Size = new Size(180, 22);
             salirDelSistemaToolStripMenuItem.Text = "Salir del sistema";
             salirDelSistemaToolStripMenuItem.Click += salirDelSistemaToolStripMenuItem_Click;
             // 
@@ -322,12 +330,12 @@
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
-            // registrarPagoAProveedorToolStripMenuItem
+            // saldoPendientePorProveedorToolStripMenuItem
             // 
-            registrarPagoAProveedorToolStripMenuItem.Name = "registrarPagoAProveedorToolStripMenuItem";
-            registrarPagoAProveedorToolStripMenuItem.Size = new Size(243, 22);
-            registrarPagoAProveedorToolStripMenuItem.Text = "Registrar Pago a Proveedor";
-            registrarPagoAProveedorToolStripMenuItem.Click += registrarPagoAProveedorToolStripMenuItem_Click;
+            saldoPendientePorProveedorToolStripMenuItem.Name = "saldoPendientePorProveedorToolStripMenuItem";
+            saldoPendientePorProveedorToolStripMenuItem.Size = new Size(290, 22);
+            saldoPendientePorProveedorToolStripMenuItem.Text = "Saldo Pendiente por proveedor";
+            saldoPendientePorProveedorToolStripMenuItem.Click += saldoPendientePorProveedorToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -388,5 +396,6 @@
         private ToolStripMenuItem saldoPendientePorProductorToolStripMenuItem;
         private ToolStripMenuItem utilidadPorCosechasToolStripMenuItem;
         private ToolStripMenuItem registrarPagoAProveedorToolStripMenuItem;
+        private ToolStripMenuItem saldoPendientePorProveedorToolStripMenuItem;
     }
 }

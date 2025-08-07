@@ -30,26 +30,28 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultaProductosAgricultor));
             splitContainer1 = new SplitContainer();
+            groupBox1 = new GroupBox();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
             btBuscar = new Button();
             txtBuscar = new TextBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             dgvProductos = new DataGridView();
-            groupBox1 = new GroupBox();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
+            AgricultorID = new DataGridViewTextBoxColumn();
             Agricultor = new DataGridViewTextBoxColumn();
             Producto = new DataGridViewTextBoxColumn();
             CodigoProducto = new DataGridViewTextBoxColumn();
             Quintales = new DataGridViewTextBoxColumn();
+            ValorTotal = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
+            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
-            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -73,6 +75,46 @@
             splitContainer1.Size = new Size(800, 475);
             splitContainer1.SplitterDistance = 183;
             splitContainer1.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(330, 68);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(281, 71);
+            groupBox1.TabIndex = 4;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Buscar por";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(194, 31);
+            label4.Name = "label4";
+            label4.Size = new Size(64, 17);
+            label4.TabIndex = 2;
+            label4.Text = "Producto";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(119, 31);
+            label3.Name = "label3";
+            label3.Size = new Size(51, 17);
+            label3.TabIndex = 1;
+            label3.Text = "Codigo";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(30, 31);
+            label2.Name = "label2";
+            label2.Size = new Size(68, 17);
+            label2.TabIndex = 0;
+            label2.Text = "Agricultor";
             // 
             // btBuscar
             // 
@@ -115,7 +157,7 @@
             // dgvProductos
             // 
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { Agricultor, Producto, CodigoProducto, Quintales });
+            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { AgricultorID, Agricultor, Producto, CodigoProducto, Quintales, ValorTotal });
             dgvProductos.Dock = DockStyle.Fill;
             dgvProductos.Location = new Point(0, 0);
             dgvProductos.Name = "dgvProductos";
@@ -124,45 +166,12 @@
             dgvProductos.Size = new Size(800, 288);
             dgvProductos.TabIndex = 0;
             // 
-            // groupBox1
+            // AgricultorID
             // 
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(330, 68);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(281, 71);
-            groupBox1.TabIndex = 4;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Buscar por";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(30, 31);
-            label2.Name = "label2";
-            label2.Size = new Size(68, 17);
-            label2.TabIndex = 0;
-            label2.Text = "Agricultor";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(119, 31);
-            label3.Name = "label3";
-            label3.Size = new Size(51, 17);
-            label3.TabIndex = 1;
-            label3.Text = "Codigo";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(194, 31);
-            label4.Name = "label4";
-            label4.Size = new Size(64, 17);
-            label4.TabIndex = 2;
-            label4.Text = "Producto";
+            AgricultorID.DataPropertyName = "AgricultorID";
+            AgricultorID.HeaderText = "AgricultorID";
+            AgricultorID.Name = "AgricultorID";
+            AgricultorID.ReadOnly = true;
             // 
             // Agricultor
             // 
@@ -178,15 +187,15 @@
             Producto.HeaderText = "Producto";
             Producto.Name = "Producto";
             Producto.ReadOnly = true;
-            Producto.Width = 200;
+            Producto.Width = 150;
             // 
             // CodigoProducto
             // 
             CodigoProducto.DataPropertyName = "CodigoProducto";
-            CodigoProducto.HeaderText = "Codigo de producto";
+            CodigoProducto.HeaderText = "Codigo Producto";
             CodigoProducto.Name = "CodigoProducto";
             CodigoProducto.ReadOnly = true;
-            CodigoProducto.Width = 150;
+            CodigoProducto.Width = 130;
             // 
             // Quintales
             // 
@@ -194,7 +203,14 @@
             Quintales.HeaderText = "Unidad";
             Quintales.Name = "Quintales";
             Quintales.ReadOnly = true;
-            Quintales.Width = 130;
+            // 
+            // ValorTotal
+            // 
+            ValorTotal.DataPropertyName = "ValorTotal";
+            ValorTotal.HeaderText = "Valor Total";
+            ValorTotal.Name = "ValorTotal";
+            ValorTotal.ReadOnly = true;
+            ValorTotal.Width = 130;
             // 
             // ConsultaProductosAgricultor
             // 
@@ -212,10 +228,10 @@
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
             ResumeLayout(false);
         }
 
@@ -231,9 +247,11 @@
         private Label label2;
         private Label label4;
         private Label label3;
+        private DataGridViewTextBoxColumn AgricultorID;
         private DataGridViewTextBoxColumn Agricultor;
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn CodigoProducto;
         private DataGridViewTextBoxColumn Quintales;
+        private DataGridViewTextBoxColumn ValorTotal;
     }
 }

@@ -40,10 +40,9 @@
             label1 = new Label();
             Codigo = new DataGridViewTextBoxColumn();
             Producto = new DataGridViewTextBoxColumn();
-            TipoInsumo = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Existencia = new DataGridViewTextBoxColumn();
-            ValorInventario = new DataGridViewTextBoxColumn();
+            Entradas = new DataGridViewTextBoxColumn();
+            Salida = new DataGridViewTextBoxColumn();
+            Existencias = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvInventario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -56,7 +55,7 @@
             // dgvInventario
             // 
             dgvInventario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvInventario.Columns.AddRange(new DataGridViewColumn[] { Codigo, Producto, TipoInsumo, Precio, Existencia, ValorInventario });
+            dgvInventario.Columns.AddRange(new DataGridViewColumn[] { Codigo, Producto, Entradas, Salida, Existencias });
             dgvInventario.Dock = DockStyle.Fill;
             dgvInventario.Location = new Point(0, 0);
             dgvInventario.Name = "dgvInventario";
@@ -79,6 +78,7 @@
             splitContainer1.Panel1.Controls.Add(txtBuscar);
             splitContainer1.Panel1.Controls.Add(pictureBox1);
             splitContainer1.Panel1.Controls.Add(label1);
+            splitContainer1.Panel1.Paint += splitContainer1_Panel1_Paint;
             // 
             // splitContainer1.Panel2
             // 
@@ -171,37 +171,27 @@
             Producto.Name = "Producto";
             Producto.ReadOnly = true;
             // 
-            // TipoInsumo
+            // Entradas
             // 
-            TipoInsumo.DataPropertyName = "TipoInsumo";
-            TipoInsumo.HeaderText = "Tipo Insumo";
-            TipoInsumo.Name = "TipoInsumo";
-            TipoInsumo.ReadOnly = true;
-            TipoInsumo.Width = 130;
+            Entradas.DataPropertyName = "Entradas";
+            Entradas.HeaderText = "Entradas";
+            Entradas.Name = "Entradas";
+            Entradas.ReadOnly = true;
             // 
-            // Precio
+            // Salida
             // 
-            Precio.DataPropertyName = "Precio";
-            Precio.HeaderText = "Precio";
-            Precio.Name = "Precio";
-            Precio.ReadOnly = true;
-            Precio.Width = 70;
+            Salida.DataPropertyName = "Salida";
+            Salida.HeaderText = "Salida";
+            Salida.Name = "Salida";
+            Salida.ReadOnly = true;
             // 
-            // Existencia
+            // Existencias
             // 
-            Existencia.DataPropertyName = "Existencias";
-            Existencia.HeaderText = "Existencia";
-            Existencia.Name = "Existencia";
-            Existencia.ReadOnly = true;
-            Existencia.Width = 70;
-            // 
-            // ValorInventario
-            // 
-            ValorInventario.DataPropertyName = "ValorInventario";
-            ValorInventario.HeaderText = "Valor Inventario";
-            ValorInventario.Name = "ValorInventario";
-            ValorInventario.ReadOnly = true;
-            ValorInventario.Width = 120;
+            Existencias.DataPropertyName = "Existencias";
+            Existencias.HeaderText = "Existencias";
+            Existencias.Name = "Existencias";
+            Existencias.ReadOnly = true;
+            Existencias.Width = 120;
             // 
             // InventarioProductos
             // 
@@ -212,7 +202,7 @@
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "InventarioProductos";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Inventario de Productos";
+            Text = "Inventario de Productos en Quintales";
             Load += InventarioProductos_Load;
             ((System.ComponentModel.ISupportInitialize)dgvInventario).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
@@ -239,9 +229,8 @@
         private Label label2;
         private DataGridViewTextBoxColumn Codigo;
         private DataGridViewTextBoxColumn Producto;
-        private DataGridViewTextBoxColumn TipoInsumo;
-        private DataGridViewTextBoxColumn Precio;
-        private DataGridViewTextBoxColumn Existencia;
-        private DataGridViewTextBoxColumn ValorInventario;
+        private DataGridViewTextBoxColumn Entradas;
+        private DataGridViewTextBoxColumn Salida;
+        private DataGridViewTextBoxColumn Existencias;
     }
 }

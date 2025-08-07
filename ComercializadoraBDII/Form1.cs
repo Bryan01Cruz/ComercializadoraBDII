@@ -160,5 +160,11 @@ namespace ComercializadoraBDII
             Formularios.RegistrarPagoProveedor forma = new Formularios.RegistrarPagoProveedor();
             forma.ShowDialog();
         }
+
+        private void saldoPendientePorProveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Formularios.Consultas.ProduccionPorProductor forma = new Formularios.Consultas.ProduccionPorProductor();
+            forma.ShowDialog();
+        }
     }
 }

@@ -45,13 +45,13 @@ namespace ComercializadoraBDII.Formularios
             dgvEntregas.Rows[nuevaFila].Cells["Precio"].Value = nudPrecio.Value;
             if (cbbDescuento.Text == "0%")
             {
-                dgvEntregas.Rows[nuevaFila].Cells["Descuento"].Value = nudPrecio.Value * 0;
+                dgvEntregas.Rows[nuevaFila].Cells["Descuento"].Value = 0;
             }
-            else
+            if (cbbDescuento.Text == "5%")
             {
-                dgvEntregas.Rows[nuevaFila].Cells["Descuento"].Value = nudPrecio.Value * Convert.ToDecimal(0.05);
+                dgvEntregas.Rows[nuevaFila].Cells["Descuento"].Value = 0.05;
             }
-            dgvEntregas.Rows[nuevaFila].Cells["Total"].Value = nudPrecio.Value * nudCantidad.Value;
+            dgvEntregas.Rows[nuevaFila].Cells["Total"].Value = nudPrecio.Value * nudCantidad.Value * (1- Convert.ToDecimal(dgvEntregas.Rows[nuevaFila].Cells["Descuento"].Value));
 
             ConectorSQL.SumarTotal(dgvEntregas, "Total", txtSubtotal);
 
@@ -189,7 +189,7 @@ namespace ComercializadoraBDII.Formularios
                 txtIGO.Text = (Convert.ToDouble(txtSubtotal.Text) * 0.05).ToString();
                 ConectorSQL.SumarTotal(dgvEntregas, "Descuento", txtDescuento);
                 txtTotal.Text = (Convert.ToDouble(txtSubtotal.Text) - Convert.ToDouble(txtIGO.Text)).ToString();
-             
+
                 txtCodigoInsumo.Text = fila.Cells["Codigo"].Value?.ToString();
                 txtInsumo.Text = fila.Cells["Insumo"].Value?.ToString();
                 txtUnidad.Text = fila.Cells["Unidad"].Value?.ToString();
@@ -267,6 +267,11 @@ namespace ComercializadoraBDII.Formularios
         }
 
         private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvEntregas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
